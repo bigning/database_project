@@ -74,7 +74,7 @@ CREATE TABLE Review (
     review_id int(10),
     recipe_id int(10),
     user_id int(10),
-    title varchar(255),
+    review_title varchar(255),
     text varchar(255),
     suggestions varchar(255),
     ratings int(10),
@@ -135,3 +135,37 @@ CREATE TABLE MeetingReport (
     foreign key (meeting_id) references GroupMeeting(meeting_id),
     foreign key (user_id) references User(user_id)
 );
+
+/* insert sample data */
+INSERT INTO User VALUES (1, 'bigning', 'hello world', 'wangning', NULL);
+INSERT INTO User VALUES (2, 'jie', 'hello world', 'wangjie', NULL);
+
+INSERT INTO Tag VALUES ('italian');
+INSERT INTO Tag VALUES ('chinese');
+INSERT INTO Tag VALUES ('vegan');
+INSERT INTO Tag VALUES ('soup');
+INSERT INTO Tag VALUES ('spicy');
+
+INSERT INTO Recipe VALUES (1, 1, 'stir-fried shredded potato', 1);
+
+INSERT INTO RecipeStep VALUES (1, 1, 'wash potato', NULL);
+INSERT INTO RecipeStep VALUES (1, 2, 'chop to slices', NULL);
+INSERT INTO RecipeStep VALUES (1, 3, 'fry', NULL);
+
+INSERT INTO RecipeIngredient VALUES (1, 'potato', 300, 'g');
+INSERT INTO RecipeIngredient VALUES (1, 'salt', 10, 'g');
+
+INSERT INTO RecipeTag VALUES (1, 'chinese');
+INSERT INTO RecipeTag VALUES (1, 'spicy');
+
+INSERT INTO Review VALUES (1, 1, 1, 'great', 'it is great', 'no suggestoin', 5);
+
+INSERT INTO Groups VALUES (1, "chinese food", 1);
+INSERT INTO GroupMember VALUES (1, 1);
+INSERT INTO GroupMember VALUES (1, 2);
+
+INSERT INTO GroupMeeting VALUES (1, 1, 'fired rice', 1);
+
+INSERT INTO MeetingRSVP VALUES (1, 1);
+
+INSERT INTO MeetingReport VALUES (1, 1, 'good', '2016-11-18 13:00:00', NULL);
