@@ -130,7 +130,7 @@ CREATE TABLE MeetingReport (
     user_id int(10),
     message varchar(255),
     time datetime,
-    meeting_report_image varchar(255),
+    meeting_image varchar(255),
     primary key (meeting_id, user_id, time),
     foreign key (meeting_id) references GroupMeeting(meeting_id),
     foreign key (user_id) references User(user_id)
