@@ -48,7 +48,7 @@ CREATE TABLE RecipeStep (
 CREATE TABLE RecipeIngredient (
     recipe_id int(10),
     ingredients varchar(255),
-    quantity int(10),
+    quantity float(10),
     unit varchar(255),
     primary key (recipe_id, ingredients),
     foreign key (recipe_id) references Recipe(recipe_id)
@@ -145,27 +145,56 @@ INSERT INTO Tag VALUES ('chinese');
 INSERT INTO Tag VALUES ('vegan');
 INSERT INTO Tag VALUES ('soup');
 INSERT INTO Tag VALUES ('spicy');
+INSERT INTO Tag VALUES ('cake');
 
 INSERT INTO Recipe VALUES (1, 1, 'stir-fried shredded potato', 1);
+INSERT INTO Recipe VALUES (2, 2, 'italian noodle', 1);
+INSERT INTO Recipe VALUES (3, 2, 'cheese cake', 2);
+INSERT INTO Recipe VALUES (4, 2, 'Grandma\'s Fettuccini Alfredo', 1);
 
 INSERT INTO RecipeStep VALUES (1, 1, 'wash potato', NULL);
-INSERT INTO RecipeStep VALUES (1, 2, 'chop to slices', NULL);
+INSERT INTO RecipeStep VALUES (1, 2, 'chop to slices, tuna', NULL);
 INSERT INTO RecipeStep VALUES (1, 3, 'fry', NULL);
+INSERT INTO RecipeStep VALUES (2, 1, 'step 1 using broccoli', NULL);
+INSERT INTO RecipeStep VALUES (2, 2, 'step 2, tuna', NULL);
+INSERT INTO RecipeStep VALUES (3, 1, 'cheese cake step 1, tuna', NULL);
+INSERT INTO RecipeStep VALUES (3, 2, 'cheese cake step 2, tuna', NULL);
+INSERT INTO RecipeStep VALUES (4, 1, 'step 1, tuna', NULL);
+INSERT INTO RecipeStep VALUES (4, 2, 'step 2', NULL);
 
 INSERT INTO RecipeIngredient VALUES (1, 'potato', 300, 'g');
 INSERT INTO RecipeIngredient VALUES (1, 'salt', 10, 'g');
+INSERT INTO RecipeIngredient VALUES (2, 'salt', 10, 'g');
+INSERT INTO RecipeIngredient VALUES (3, 'sugar', 200, 'g');
+
+INSERT INTO RecipeRelation VALUES (1, 2);
+INSERT INTO RecipeRelation VALUES (3, 2);
 
 INSERT INTO RecipeTag VALUES (1, 'chinese');
 INSERT INTO RecipeTag VALUES (1, 'spicy');
+INSERT INTO RecipeTag VALUES (2, 'italian');
+INSERT INTO RecipeTag VALUES (3, 'cake');
 
 INSERT INTO Review VALUES (1, 1, 1, 'great', 'it is great', 'no suggestoin', 5);
+INSERT INTO Review VALUES (2, 2, 1, 'great', 'it is great', 'no suggestoin', 3);
+INSERT INTO Review VALUES (3, 3, 1, 'great', 'it is great', 'no suggestoin', 2);
+INSERT INTO Review VALUES (4, 4, 1, 'great', 'it is great', 'no suggestoin', 5);
 
 INSERT INTO Groups VALUES (1, "chinese food", 1);
+INSERT INTO Groups VALUES (2, "Park Slope Cake Club", 2);
 INSERT INTO GroupMember VALUES (1, 1);
 INSERT INTO GroupMember VALUES (1, 2);
+INSERT INTO GroupMember VALUES (2, 1);
+INSERT INTO GroupMember VALUES (2, 2);
 
 INSERT INTO GroupMeeting VALUES (1, 1, 'fired rice', 1);
+INSERT INTO GroupMeeting VALUES (2, 2, 'meeting 1', 2);
+INSERT INTO GroupMeeting VALUES (2, 3, 'meeting 2', 2);
+INSERT INTO GroupMeeting VALUES (2, 4, 'meeting 3', 2);
 
 INSERT INTO MeetingRSVP VALUES (1, 1);
+INSERT INTO MeetingRSVP VALUES (2, 2);
+INSERT INTO MeetingRSVP VALUES (3, 2);
+INSERT INTO MeetingRSVP VALUES (4, 2);
 
 INSERT INTO MeetingReport VALUES (1, 1, 'good', '2016-11-18 13:00:00', NULL);
