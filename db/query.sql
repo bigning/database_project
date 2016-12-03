@@ -1,6 +1,6 @@
 /*  Create a record for a new user account, with a name, a login name, and a password */
 
-INSERT INTO User VALUES (3, 'wer', 'hello us', 'badpassword', NULL);
+INSERT INTO User(user_name, user_profile, password,user_icon) VALUES ( 'wer', 'hello us', 'badpassword', NULL);
 
 /*List all recipes with tag “italian” that contain the keyword 'broccoli' */
 SELECT Recipe.recipe_title

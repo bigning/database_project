@@ -1,6 +1,6 @@
-<?php require "./include/partials/navHeader.php" ?>
+<?php require "/Applications/MAMP/htdocs/database_project/include/partials/navHeader.php" ?>
 
-<form class = "navbar-form navbar-right" mehtod = "GET" action = "./login.php">
+<form class = "navbar-form navbar-right" method = "GET" action = "./login.php">
 	<div class = "form-group">
 		<input class="form-control" type="text" name="username" placeholder="User Name" required>
 		<input class="form-control" type="password" name="password" placeholder="Password" required>
@@ -8,13 +8,13 @@
 	<button type="submit" class="btn btn-default">Login</button>
 </form>
 
-<?php require "./include/partials/navFooter.php" ?>
+<?php require "/Applications/MAMP/htdocs/database_project/include/partials/navFooter.php" ?>
 
 
 
 <div>
 	<h1>Register</h1>
-	<form mehtod = "POST" action = "./register.php">
+	<form method = "POST" action = "./register.php">
 		<div class = "form-group">
 			<label for = "username">Username</label>
 			<input type="text" name="username" id = "username" required>
@@ -30,4 +30,4 @@
 </div>
 
 
-<?php require "./include/partials/footer.php" ?>
+<?php require "/Applications/MAMP/htdocs/database_project/include/partials/footer.php" ?>
