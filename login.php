@@ -30,6 +30,3 @@ if ($result->num_rows == 0) {
 //test
 echo $is_success;
 ?>
-
-
-<!-- front end -->
