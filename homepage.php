@@ -1,18 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Cookzilla</title>
-	<link rel="stylesheet" type="text/css" href="./include/bootstrap.min.css">
-</head>
-<body>
-<nav class="navbar navbar-default">
-  	<div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-    	<a class="navbar-brand" href="./">Cookzilla</a>
-    </div>
-  	</div><!-- /.container-fluid -->
-</nav>
+<?php require "./include/partials/header.php" ?>
 
 <h1>Login</h1>
 <form mehtod = "GET" action = "./login.php">
@@ -39,6 +25,4 @@
 	<input type="submit">
 </form>
 
-<script type="text/javascript" src="./include/bootstrap.min.js"></script>
-</body>
-</html>
+<?php require "./include/partials/footer.php" ?>
