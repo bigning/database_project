@@ -6,30 +6,38 @@
 </head>
 <body>
 <nav class="navbar navbar-default">
-  <div class="container-fluid">
+  	<div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="./">Cookzilla</a>
+    	<a class="navbar-brand" href="./">Cookzilla</a>
     </div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav navbar-right">
-        <form class = "navbar-form" mehtod = "POST" action = "./login.php">
-        	<input type="text" name="username">
-        	<input type="password" name="password">
-        	<input type="submit">
-        </form>
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
+  	</div><!-- /.container-fluid -->
 </nav>
+
+<h1>Login</h1>
+<form mehtod = "GET" action = "./login.php">
+	<label for = "username">Username</label>
+	<input type="text" name="username" id = "username" required>
+	<label for = "password">Password</label>
+	<input type="password" name="password" id = "password" required>
+	<input type="submit">
+</form>
+
+<h1>Register</h1>
+<form mehtod = "POST" action = "./register.php">
+	<label for = "username">Username</label>
+	<input type="text" name="username" id = "username" required>
+	<label for = "password">Password</label>
+	<input type="password" name="password" id = "password" required>
+	<br>
+	<label for = "description">Description</label>
+	<textarea id = "description" name = "description"></textarea>
+	<br>
+	<label for = "icon">Icon</label>
+	<input type="file" name="icon">
+	<br>
+	<input type="submit">
+</form>
 
 <script type="text/javascript" src="./include/bootstrap.min.js"></script>
 </body>
