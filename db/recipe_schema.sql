@@ -14,7 +14,7 @@ DROP TABLE Tag;
 DROP TABLE User;
 
 CREATE TABLE User (
-    user_id int(10),
+    user_id int(10) AUTO_INCREMENT,
     user_name varchar(40),
     user_profile varchar(200),
     password char(32),
@@ -28,7 +28,7 @@ CREATE TABLE Tag (
 );
 
 CREATE TABLE Recipe (
-    recipe_id int (10),
+    recipe_id int (10) AUTO_INCREMENT,
     user_id int(10),
     recipe_title varchar(255),
     num_servings int(10),
@@ -71,7 +71,7 @@ CREATE TABLE RecipeRelation (
 );
 
 CREATE TABLE Review (
-    review_id int(10),
+    review_id int(10) AUTO_INCREMENT,
     recipe_id int(10),
     user_id int(10),
     review_title varchar(255),
@@ -91,7 +91,7 @@ CREATE TABLE ReviewImage (
 );
 
 CREATE TABLE Groups (
-    group_id int(10),
+    group_id int(10) AUTO_INCREMENT,
     group_name varchar(255),
     group_owner int(10),
     primary key (group_id),
@@ -108,7 +108,7 @@ CREATE TABLE GroupMember (
 
 CREATE TABLE GroupMeeting (
     group_id int(10),
-    meeting_id int(10),
+    meeting_id int(10) AUTO_INCREMENT,
     meeting_name varchar(255),
     organiser_id int(10),
     primary key (meeting_id),
