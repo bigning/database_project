@@ -16,11 +16,21 @@ $query->execute();
 $result = $query->get_result();
 if ($result->num_rows == 0) {
     $is_success = 0;
+    header("Location: welcomePage.php?source=login_error");
 }elseif ($result->num_rows == 1) {
     $is_success = 1;
     $row = $result->fetch_array(MYSQLI_ASSOC);
     $user_profile = $row["user_profile"];
     $user_icon_path = $row["user_icon"];
+
+    // start seesion
+    session_start();
+    $_SESSION["user_name"] = $user_name;
+    $_SESSION["user_id"] = $row["user_id"];
+    $_SESSION["user_profile"] = $user_profile;
+    $_SESSION["user_icon"] = $user_icon_path;
+
+    header("Location: homepage.php");
 } else {
     $is_success = 0;
     echo "don't try to inject!!";

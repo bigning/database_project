@@ -1,5 +1,14 @@
 <?php require "./include/partials/navHeader.php" ?>
 
+<?php 
+$login_error = false;
+if (array_key_exists("source", $_GET)) {
+    if ($_GET["source"] == "login_error") {
+        $login_error = true;
+    }
+}
+?>
+
 <form class = "navbar-form navbar-right" method = "GET" action = "./login.php">
 	<div class = "form-group">
 		<input class="form-control" type="text" name="username" placeholder="User Name" required>
