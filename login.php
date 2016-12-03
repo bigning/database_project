@@ -30,11 +30,3 @@ $conn->close();
 
 //test
 echo $is_success;
-<<<<<<< HEAD
-?>
-=======
-?>
-
-
-<!-- front end -->
->>>>>>> 1d61ba192751f6d1c910319e064b0c094f72fa00

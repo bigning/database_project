@@ -1,6 +1,22 @@
-<?php require "/Applications/MAMP/htdocs/database_project/include/partials/navHeader.php" ?>
-
-<?php require "/Applications/MAMP/htdocs/database_project/include/partials/navFooter.php" ?>
 
 
-<?php require "/Applications/MAMP/htdocs/database_project/include/partials/footer.php" ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- homepage FE -->
+<?php require "./include/partials/navHeader.php" ?>
+
+<?php require "./include/partials/navFooter.php" ?>
+
+<?php require "./include/partials/footer.php" ?>

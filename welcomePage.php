@@ -1,4 +1,4 @@
-<?php require "/Applications/MAMP/htdocs/database_project/include/partials/navHeader.php" ?>
+<?php require "./include/partials/navHeader.php" ?>
 
 <form class = "navbar-form navbar-right" method = "GET" action = "./login.php">
 	<div class = "form-group">
@@ -8,8 +8,7 @@
 	<button type="submit" class="btn btn-default">Login</button>
 </form>
 
-<?php require "/Applications/MAMP/htdocs/database_project/include/partials/navFooter.php" ?>
-
+<?php require "./include/partials/navFooter.php" ?>
 
 
 <div>
@@ -30,4 +29,4 @@
 </div>
 
 
-<?php require "/Applications/MAMP/htdocs/database_project/include/partials/footer.php" ?>
+<?php require "./include/partials/footer.php" ?>
