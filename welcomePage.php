@@ -15,7 +15,7 @@ if (array_key_exists("source", $_GET)) {
 	<div class = "form-group">
 		<?php 
 			if ($login_error){
-				echo "<h3>login error</h3>";
+				echo "<script type='text/javascript'>alert('Ooops! Wrong User Name or Password');</script>";
 			}
 		?>
 	</div>
@@ -28,18 +28,22 @@ if (array_key_exists("source", $_GET)) {
 
 <?php require "./include/partials/navFooter.php" ?>
 
-<div>
-	<h1>Register</h1>
-	<form method = "POST" action = "./register.php" enctype="multipart/form-data">
-		<input  type="text" name="username" placeholder="User Name" required>
-		<input  type="password" name="password" placeholder="Password" required>
-		<textarea  name = "description" placeholder="Describe youself"></textarea>
-		<label for = "icon">Icon</label>
-		<input type="file" name="icon" id="icon">
-		<button type="submit" class="btn btn-default">Register</button>
+	<form id = "register_form" method = "POST" action = "./register.php" enctype="multipart/form-data">
+		<div class = "form-group">
+			<input  class = "form-control form-input" type="text" name="username" placeholder="User Name" required>
+		</div>
+		<div class = "form-group">
+			<input  class = "form-control form-input" type="password" name="password" placeholder="Password" required>
+		</div>
+		<div class = "form-group">
+			<textarea  class = "form-control" name = "description" placeholder="Describe youself"></textarea>
+		</div>	
+		<div class = "form-group form-input">
+			<span id = "yourIcon">Your Icon</span>
+			<input type="file" name="icon" id="icon">
+		</div>
+		<button id = "registerButton" type="submit" class="btn btn-default btn-lg">Register</button>
 	</form>
-</div>
-
 
 <link rel="stylesheet" type="text/css" href="./include/css/welcomePage.css">
 <?php require "./include/partials/footer.php" ?>
