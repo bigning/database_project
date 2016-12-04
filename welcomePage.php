@@ -9,7 +9,7 @@ if (array_key_exists("source", $_GET)) {
 }
 ?>
 
-<!-- login fail $login_error = true -->
+<!-- Front End -->
 
 <form class = "navbar-form navbar-right" method = "GET" action = "./login.php">
 	<div class = "form-group">

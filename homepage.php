@@ -9,26 +9,32 @@ $user_name = $_SESSION["user_name"];
 $user_profile = $_SESSION["user_profile"];
 $user_icon = $_SESSION["user_icon"];
 
-echo $user_name;
 ?>
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+<!-- test -->
+<?php 
+if ($user_icon === null){
+	echo "no picture";
+}
+?>
+	
 <!-- homepage FE -->
 <?php require "./include/partials/navHeader.php" ?>
+<p class="navbar-text navbar-right">
+	<?php 
+		echo $user_name;
+		echo '<img src="' . $user_icon . '">';
+	?>
+
+</p>
+<img src="">
+
 
 <?php require "./include/partials/navFooter.php" ?>
 
+
+
+<link rel="stylesheet" type="text/css" href="./include/css/homePage.css">
 <?php require "./include/partials/footer.php" ?>

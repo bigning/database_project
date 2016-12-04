@@ -9,7 +9,8 @@
 <body>
 <nav class="navbar navbar-default navbar-color">
   	<div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
+  	
+    <!-- Brand -->
     <div class="navbar-header">
     	<a class="navbar-brand" href="./welcomePage.php">Cookzilla</a>
     </div>

@@ -19,12 +19,13 @@ body{
 
 .form-input{
 	width: 200px;
-	margin: 0 auto;
+	margin: 0 10%;
 	padding: 0 60px;
 }
 
 textarea.form-control{
 	height: 100px;
+	width: 274px;
 }
 
 .form-control{
@@ -40,5 +41,5 @@ input[type='file'] {
 }
 
 #registerButton{
-	margin: 80px 145px;
+	margin: 70px 85px;
 }
