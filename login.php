@@ -2,10 +2,13 @@
 // if success login, return is_success(1) user_name, user_profile, user_icon_path
 // else return is_success(0)
 error_reporting(-1);
+/*
 $conn = new mysqli("52.203.6.76", "db", "database_project", "recipes");
 if (mysqli_connect_errno()) {
     die("Connection failed: " . $conn->connect_error);
 } 
+ */
+require 'db_util.php';
 
 $user_name = $_GET["username"];
 $pw = $_GET["password"];
