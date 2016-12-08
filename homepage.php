@@ -54,13 +54,17 @@ if ($user_icon === null){
 		echo $user_name;
 		echo '<img src="' . $user_icon . '">';
 	?>
-
 </p>
-<img src="">
 
 
 <?php require "./include/partials/navFooter.php" ?>
-
+<?php 
+    echo '<h1>' . $group_name . '</h1>';
+    echo("<h1> group information</h1>");
+    foreach ($group_rows as $value) {
+        print_r($value);
+    }
+?>
 
 
 <link rel="stylesheet" type="text/css" href="./include/css/homePage.css">
