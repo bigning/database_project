@@ -91,24 +91,20 @@ if ($user_icon === null){
 
 
 <?php require "./include/partials/navHeader.php" ?>
-<p class="navbar-text navbar-right">
+<ul class="navbar-text navbar-right">
 
-
-    <?php 
-        echo '<img class = "thumbnail" id = "user_icon" src="' . $user_icon . '">';
-    ?>
+    <!-- User icon -->
+    <img src= <?php echo $user_icon ?> class = "thumbnail" id = "user_icon">
 
     <!-- Drop Down -->
-    <a href="./homepage.php" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <?php echo $user_name ?> <span class="caret"></span></a>
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <?php echo $user_name ?> <span class="caret"></span></a>
     <ul class="dropdown-menu">
-        <li><a href="#">Action</a></li>
-        <li><a href="#">Another action</a></li>
-        <li><a href="#">Something else here</a></li>
+        <li><a href="./homepage.php">My HomePage</a></li>
         <li role="separator" class="divider"></li>
-        <li><a href="#">Separated link</a></li>
+        <li><a href="./logout.php">Log Out</a></li>
     </ul>
 
-</p>
+</ul>
 
 
 <?php require "./include/partials/navFooter.php" ?>
