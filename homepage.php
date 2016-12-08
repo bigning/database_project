@@ -6,13 +6,8 @@
 // return recipe the user recetly looked: recipe_title,recipe_id in recent_look
 error_reporting(-1);
 require 'db_util.php';
-echo $conn->info;
+require './check_login_status.php';
 
-ob_start();
-session_start();
-if (!$_SESSION["user_id"]) {
-    header("Location: welcomePage.php");
-}
 
 $user_id = $_SESSION["user_id"];
 $user_name = $_SESSION["user_name"];
