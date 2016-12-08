@@ -9,6 +9,10 @@ require 'db_util.php';
 echo $conn->info;
 
 session_start();
+if (!$_SESSION["user_id"]) {
+    header("Location: welcomePage.php");
+}
+
 $user_id = $_SESSION["user_id"];
 $user_name = $_SESSION["user_name"];
 $user_profile = $_SESSION["user_profile"];
