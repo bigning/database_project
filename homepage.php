@@ -8,6 +8,7 @@ error_reporting(-1);
 require 'db_util.php';
 echo $conn->info;
 
+ob_start();
 session_start();
 if (!$_SESSION["user_id"]) {
     header("Location: welcomePage.php");
