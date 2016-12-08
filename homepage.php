@@ -73,27 +73,39 @@ if ($query = $conn->prepare("SELECT Recipe.recipe_title, Recipe.recipe_id FROM R
 
 
 
+
+
+	
+<!-- homepage FE -->
+
 <!-- test -->
 <?php 
 if ($user_icon === null){
-	echo "no picture";
+    echo "no picture";
 }
 ?>
-	
-<!-- homepage FE -->
+
+
+
+
+
+
 <?php require "./include/partials/navHeader.php" ?>
 <p class="navbar-text navbar-right">
 	<?php 
-		echo $user_name;
-		echo '<img src="' . $user_icon . '">';
+		echo '<span>' . $user_name . '</span>';
+		echo '<img class = "thumbnail" id = "user_icon" src="' . $user_icon . '">';
 	?>
-
 </p>
-<img src="">
 
 
 <?php require "./include/partials/navFooter.php" ?>
-
+<?php 
+    echo("<h1> group information</h1>");
+    foreach ($group_rows as $value) {
+        echo '<h1>' . $value["group_name"] . '</h1>';
+    }
+?>
 
 
 <link rel="stylesheet" type="text/css" href="./include/css/homePage.css">
