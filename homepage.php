@@ -59,10 +59,22 @@ if ($user_icon === null){
 
 <?php require "./include/partials/navHeader.php" ?>
 <p class="navbar-text navbar-right">
-	<?php 
-		echo '<span>' . $user_name . '</span>';
-		echo '<img class = "thumbnail" id = "user_icon" src="' . $user_icon . '">';
-	?>
+
+
+    <?php 
+        echo '<img class = "thumbnail" id = "user_icon" src="' . $user_icon . '">';
+    ?>
+
+    <!-- Drop Down -->
+    <a href="./homepage.php" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <?php echo $user_name ?> <span class="caret"></span></a>
+    <ul class="dropdown-menu">
+        <li><a href="#">Action</a></li>
+        <li><a href="#">Another action</a></li>
+        <li><a href="#">Something else here</a></li>
+        <li role="separator" class="divider"></li>
+        <li><a href="#">Separated link</a></li>
+    </ul>
+
 </p>
 
 
@@ -73,6 +85,13 @@ if ($user_icon === null){
         echo '<h1>' . $value["group_name"] . '</h1>';
     }
 ?>
+
+
+
+
+
+
+
 
 
 <link rel="stylesheet" type="text/css" href="./include/css/homePage.css">
