@@ -56,7 +56,7 @@ if ($query = $conn->prepare("SELECT Groups.group_id, Groups.group_name, Groups.g
 }
 
 // query recipes user recently looked at
-if ($query = $conn->prepare("SELECT Recipe.recipe_title, Recipe.recipe_id FROM Recipe JOIN user_log ON Recipe.recipe_id = user_log.params WHERE user_log.user_id = ?;")) {
+if ($query = $conn->prepare("SELECT Recipe.recipe_title, Recipe.recipe_id FROM Recipe JOIN user_log ON Recipe.recipe_id = user_log.params WHERE user_log.user_id = ? AND user_log.event_name='look_recipe' ORDER BY user_log.event_time DESC limit 5;")) {
     $query->bind_param('i', $user_id);
     $query->execute();
     $result = $query->get_result();
@@ -68,6 +68,7 @@ if ($query = $conn->prepare("SELECT Recipe.recipe_title, Recipe.recipe_id FROM R
     echo mysqli_error($conn);
     echo "query recipes wrong";
 }
+
 
 ?>
 
