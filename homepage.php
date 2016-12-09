@@ -85,6 +85,12 @@ if ($user_icon === null){
 }
 ?>
 
+<?php 
+    foreach ($rsvp as $value) {
+        echo "<div>" . $value["meeting_name"] . " from " . $value["group_name"] . "</div>";
+    }
+?>
+
 
 
 
@@ -106,17 +112,40 @@ if ($user_icon === null){
 
 </ul>
 
-
 <?php require "./include/partials/navFooter.php" ?>
-<?php 
-    echo("<h1> group information</h1>");
-    foreach ($group_rows as $value) {
-        echo '<h1>' . $value["group_name"] . '</h1>';
-    }
-?>
+
+<!-- Group Membership -->
+<div class = "container">
+    <table class = "table">
+        <thead class = "thead-default">
+            <th><?php echo "My Group Membership" ?></th>
+        </thead>
+        <tbody>
+            <?php 
+                foreach ($group_rows as $value) {
+                    echo "<tr><td><a href='./group_detail?gid=" .  $value["group_id"] . "'>" . $value["group_name"] . "</a></td></tr>";
+                }
+            ?>
+        </tbody>
+    </table>
+</div>
 
 
-
+<!-- RSVPs -->
+<div class = "container">
+    <table class = "table">
+        <thead class = "thead-default">
+            <th><?php echo "My RSVP" ?></th>
+        </thead>
+        <tbody>
+            <?php 
+                foreach ($rsvp as $value) {
+                    echo "<tr><td>" . $value["meeting_name"] . "</td></tr>";
+                }
+            ?>
+        </tbody>
+    </table>
+</div>
 
 
 
