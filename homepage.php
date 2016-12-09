@@ -1,28 +1,8 @@
-<!-- Question -->
-
-<!-- change
-
-return recipe_title in recipes
-
-to 
-
-return recipe_id, recipe_title in recipes -->
-
-
-
-
-
-
-
-
-
-
-
 <?php
 // return uesr_id, user_name, user_profile, user_icon
 // return user's group_id, group_name, group_owner in group_rows
 // return user's meeting_name, in rsvp 
-// return recipe_title in recipes
+// return recipe_id, recipe_title in recipes
 // return recipe the user recetly looked: recipe_title,recipe_id in recent_look
 error_reporting(-1);
 require 'db_util.php';
@@ -49,7 +29,7 @@ if ($query = $conn->prepare("SELECT Groups.group_id, Groups.group_name, Groups.g
 }
 
 // query recipes created by this user
-if ($query = $conn->prepare("SELECT Recipe.recipe_title FROM Recipe WHERE Recipe.user_id = ?;")) {
+if ($query = $conn->prepare("SELECT Recipe.recipe_id Recipe.recipe_title FROM Recipe WHERE Recipe.user_id = ?;")) {
     $query->bind_param('i', $user_id);
     $query->execute();
     $result = $query->get_result();
