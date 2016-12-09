@@ -141,9 +141,22 @@ if ($query = $conn->prepare("SELECT Recipe.recipe_title, Recipe.recipe_id FROM R
 </div>
 
 
-<!-- RESERVE  -->
-<!-- My recipes -->
 
+<!-- My recipes -->
+<div class = "container">
+    <table class = "table">
+        <thead class = "thead-default">
+            <th><?php echo "My RSVP" ?></th>
+        </thead>
+        <tbody>
+            <?php 
+                foreach ($rsvp as $value) {
+                    echo "<tr><td>" . $value["meeting_name"] . "</td></tr>";
+                }
+            ?>
+        </tbody>
+    </table>
+</div>
 
 
 
