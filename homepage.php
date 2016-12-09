@@ -78,12 +78,11 @@ if ($query = $conn->prepare("SELECT Recipe.recipe_title, Recipe.recipe_id FROM R
 	
 
 <!-- FE test -->
-<?php 
-    foreach ($recipes as $key => $value) {
-        # code...
-        print_r($value);
-    }
- ?>
+
+
+
+
+
 
 
 
@@ -110,12 +109,14 @@ if ($query = $conn->prepare("SELECT Recipe.recipe_title, Recipe.recipe_id FROM R
 <div class = "container">
     <table class = "table">
         <thead class = "thead-default">
-            <th><?php echo "Group Membership" ?></th>
+            <th>Group Membership</th>
         </thead>
         <tbody>
-            <?php 
-                foreach ($group_rows as $value) {
-                    echo "<tr><td><a href='./group_detail?gid=" .  $value["group_id"] . "'>" . $value["group_name"] . "</a></td></tr>";
+            <?php
+                if (!empty($group_rows)) {
+                    foreach ($group_rows as $value) {
+                        echo "<tr><td><a href='./group_detail?group_id=" .  $value["group_id"] . "'>" . $value["group_name"] . "</a></td></tr>";
+                    }
                 }
             ?>
         </tbody>
@@ -127,13 +128,15 @@ if ($query = $conn->prepare("SELECT Recipe.recipe_title, Recipe.recipe_id FROM R
 <div class = "container">
     <table class = "table">
         <thead class = "thead-default">
-            <th><?php echo "RSVP" ?></th>
+            <th>Upcoming Reservation</th>
         </thead>
         <tbody>
             <?php 
+            if (!empty($rsvp)){
                 foreach ($rsvp as $value) {
                     echo "<tr><td>" . $value["meeting_name"] . "</td></tr>";
                 }
+            }
             ?>
         </tbody>
     </table>
@@ -145,18 +148,38 @@ if ($query = $conn->prepare("SELECT Recipe.recipe_title, Recipe.recipe_id FROM R
 <div class = "container">
     <table class = "table">
         <thead class = "thead-default">
-            <th><?php echo "Recipes" ?></th>
+            <th>My Recipes</th>
         </thead>
         <tbody>
             <?php 
-                foreach ($recipes as $value) {
-                    echo "<tr><td><a href='./recipe_detail?rid=" .  $value["group_id"] . "'>" . $value["group_name"] . "</a></td></tr>";
+                if (!empty($recipes)){
+                    foreach ($recipes as $value) {
+                        echo "<tr><td><a href='./recipe_detail?recipe_id=" .  $value["recipe_id"] . "'>" . $value["recipe_title"] . "</a></td></tr>";
+                    }
                 }
             ?>
         </tbody>
     </table>
 </div>
 
+
+<!-- Recent looked recipe -->
+<div class = "container">
+    <table class = "table">
+        <thead class = "thead-default">
+            <th>Recent Looked Recipes</th>
+        </thead>
+        <tbody>
+            <?php 
+                if (!empty($recent_look)){
+                    foreach ($recent_look as $value) {
+                    echo "<tr><td><a href='./recipe_detail?recipe_id=" .  $value["recipe_id"] . "'>" . $value["recipe_title"] . "</a></td></tr>";
+                    }
+                }
+            ?>
+        </tbody>
+    </table>
+</div>
 
 
 
