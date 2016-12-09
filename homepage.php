@@ -29,7 +29,7 @@ if ($query = $conn->prepare("SELECT Groups.group_id, Groups.group_name, Groups.g
 }
 
 // query recipes created by this user
-if ($query = $conn->prepare("SELECT Recipe.recipe_id Recipe.recipe_title FROM Recipe WHERE Recipe.user_id = ?;")) {
+if ($query = $conn->prepare("SELECT Recipe.recipe_id, Recipe.recipe_title FROM Recipe WHERE Recipe.user_id = ?;")) {
     $query->bind_param('i', $user_id);
     $query->execute();
     $result = $query->get_result();
