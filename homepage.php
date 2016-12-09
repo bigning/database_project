@@ -1,3 +1,23 @@
+<!-- Question -->
+
+<!-- change
+
+return recipe_title in recipes
+
+to 
+
+return recipe_id, recipe_title in recipes -->
+
+
+
+
+
+
+
+
+
+
+
 <?php
 // return uesr_id, user_name, user_profile, user_icon
 // return user's group_id, group_name, group_owner in group_rows
@@ -76,26 +96,19 @@ if ($query = $conn->prepare("SELECT Recipe.recipe_title, Recipe.recipe_id FROM R
 
 
 	
-<!-- homepage FE -->
 
-<!-- test -->
-<?php 
-if ($user_icon === null){
-    echo "no picture";
-}
-?>
+<!-- FE test -->
 
 <?php 
-    foreach ($rsvp as $value) {
-        echo "<div>" . $value["meeting_name"] . " from " . $value["group_name"] . "</div>";
+    foreach ($recipes as $value) {
+        # code...
+        print_r($value);
     }
 ?>
 
 
 
-
-
-
+<!-- FE -->
 <?php require "./include/partials/navHeader.php" ?>
 <ul class="navbar-text navbar-right">
 
