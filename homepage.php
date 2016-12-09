@@ -79,12 +79,6 @@ if ($query = $conn->prepare("SELECT Recipe.recipe_title, Recipe.recipe_id FROM R
 
 <!-- FE test -->
 
-<?php 
-    // foreach ($recipes as $value) {
-    //     # code...
-    //     print_r($value);
-    // }
-?>
 
 
 
@@ -111,7 +105,7 @@ if ($query = $conn->prepare("SELECT Recipe.recipe_title, Recipe.recipe_id FROM R
 <div class = "container">
     <table class = "table">
         <thead class = "thead-default">
-            <th><?php echo "My Group Membership" ?></th>
+            <th><?php echo "Group Membership" ?></th>
         </thead>
         <tbody>
             <?php 
@@ -128,7 +122,7 @@ if ($query = $conn->prepare("SELECT Recipe.recipe_title, Recipe.recipe_id FROM R
 <div class = "container">
     <table class = "table">
         <thead class = "thead-default">
-            <th><?php echo "My RSVP" ?></th>
+            <th><?php echo "RSVP" ?></th>
         </thead>
         <tbody>
             <?php 
