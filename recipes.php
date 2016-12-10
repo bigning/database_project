@@ -2,7 +2,7 @@
 // return user_id, recipe_id, recipe_title IN recipes;
 // For each recipe_id in recipes, return 
 // pictures, tags, avg_ratings. Key is recipe_id
-// I.E. pictures[1] = array {"pic_1", "pic_2"}
+// E.G. pictures[1] = array {"pic_1", "pic_2"}
 // tags[1] = array ("chinese", "spicy")
 // avg_ratings[1] = 5.0
 
