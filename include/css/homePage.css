@@ -1,16 +1,13 @@
 .container{
-	width: 300px;
 	border: 1px solid white;
-	margin: 5px;
 }
 
 .table tbody tr td{
 	text-align: center;
-	border-top: 1px dashed rgba(0,0,0,0);
 }
 
 .dropdown-menu{
-	background-color: rgba(0,0,0,0);
+	background-color: rgba(0,0,0,0.3);
 
 }
 
@@ -18,22 +15,19 @@
 	color: white;
 }
 
-.page-right-div{
-	float: right;
-}
-
-.page-right-div .container{
-	margin-top: 20px;
+.page-right-div .table tbody tr td{
 	border: none;
 }
 
-.page-right-div .container th{
+.page-right-div .table th{
 	border-bottom: 2px solid orange;
 }
 
-.recipe-div{
-	float: left;
+.page-right-div .table{
+	margin-bottom: 80px;
+	margin-left: 100px;
 }
+
 
 
 
@@ -47,7 +41,7 @@ body{
 	background: url(../images/homePage.jpeg);
 	background-size: cover;
 	background-position: center;
-	background-repeat: none;
+	background-repeat: no-repeat;
 	color: white;
 }
 

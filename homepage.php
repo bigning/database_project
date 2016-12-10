@@ -104,68 +104,18 @@ if ($query = $conn->prepare("SELECT Recipe.recipe_title, Recipe.recipe_id FROM R
 
 <?php require "./include/partials/navFooter.php" ?>
 
-<div class = "page-right-div">
-    <!-- Group Membership -->
-    <div class = "container">
-        <table class = "table">
-            <thead class = "thead-default">
-                <th>Group Membership</th>
-            </thead>
-            <tbody>
-                <?php
-                    if (!empty($group_rows)) {
-                        foreach ($group_rows as $value) {
-                            echo "<tr><td><a href='./group_detail?group_id=" .  $value["group_id"] . "'>" . $value["group_name"] . "</a></td></tr>";
-                        }
-                    }
-                ?>
-            </tbody>
-        </table>
-    </div>
-
-
-    <!-- RSVPs -->
-    <div class = "container">
-        <table class = "table">
-            <thead class = "thead-default">
-                <th>Upcoming Reservation</th>
-            </thead>
-            <tbody>
-                <?php 
-                if (!empty($rsvp)){
-                    foreach ($rsvp as $value) {
-                        echo "<tr><td>" . $value["meeting_name"] . "</td></tr>";
-                    }
-                }
-                ?>
-            </tbody>
-        </table>
-    </div>
-
-    <!-- Recent looked recipe -->
-    <div class = "container recentlook-div">
-        <table class = "table">
-            <thead class = "thead-default">
-                <th>Recent Looked Recipes</th>
-            </thead>
-            <tbody>
-                <?php 
-                    if (!empty($recent_look)){
-                        foreach ($recent_look as $value) {
-                        echo "<tr><td><a href='./recipe_detail?recipe_id=" .  $value["recipe_id"] . "'>" . $value["recipe_title"] . "</a></td></tr>";
-                        }
-                    }
-                ?>
-            </tbody>
-        </table>
-    </div>
+<!-- create -->
+<div class = "contianer create col-md-1">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat. Duis aute irure dlaborum.</p>
 </div>
 
 
 
-
 <!-- Recipes -->
-<div class = "container recipe-div">
+<div class = "container recipe-div col-md-7">
     <table class = "table">
         <thead class = "thead-default">
             <th>My Recipes</th>
@@ -181,6 +131,68 @@ if ($query = $conn->prepare("SELECT Recipe.recipe_title, Recipe.recipe_id FROM R
         </tbody>
     </table>
 </div>
+
+
+<!-- Page left -->
+<div class = "page-right-div col-md-4">
+
+    <!-- Group Membership -->
+    <table class = "table">
+        <thead class = "thead-default">
+            <th>Group Membership</th>
+        </thead>
+        <tbody>
+            <?php
+                if (!empty($group_rows)) {
+                    foreach ($group_rows as $value) {
+                        echo "<tr><td><a href='./group_detail?group_id=" .  $value["group_id"] . "'>" . $value["group_name"] . "</a></td></tr>";
+                    }
+                }
+            ?>
+        </tbody>
+    </table>
+
+
+
+<!-- RSVPs -->
+    <table class = "table">
+        <thead class = "thead-default">
+            <th>Upcoming Reservation</th>
+        </thead>
+        <tbody>
+            <?php 
+            if (!empty($rsvp)){
+                foreach ($rsvp as $value) {
+                    echo "<tr><td>" . $value["meeting_name"] . "</td></tr>";
+                }
+            }
+            ?>
+        </tbody>
+    </table>
+
+
+<!-- Recent looked recipe -->
+    <table class = "table">
+        <thead class = "thead-default">
+            <th>Recent Looked Recipes</th>
+        </thead>
+        <tbody>
+            <?php 
+                if (!empty($recent_look)){
+                    foreach ($recent_look as $value) {
+                    echo "<tr><td><a href='./recipe_detail?recipe_id=" .  $value["recipe_id"] . "'>" . $value["recipe_title"] . "</a></td></tr>";
+                    }
+                }
+            ?>
+        </tbody>
+    </table>
+
+</div>
+
+
+
+
+
 
 
 
