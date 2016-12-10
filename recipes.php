@@ -1,12 +1,16 @@
 <?php 
 // return user_id, recipe_id, recipe_title IN recipes;
 // For each recipe_id in recipes, return 
+// pictures, tags, avg_ratings. Key is recipe_id
+// I.E. pictures[1] = array {"pic_1", "pic_2"}
+// tags[1] = array ("chinese", "spicy")
+// avg_ratings[1] = 5.0
 
 require "./check_login_status.php";
 require "./db_util.php";
 
 $search_word = '%%';
-if ($_GET["query"]) {
+if (array_key_exists("query", $_GET)) {
     $search_word = '%' . $_GET['query'] . '%';
 }
 
@@ -26,6 +30,7 @@ if ($query = $conn->prepare($query_str)) {
 
 $pictures = array();
 $tags = array();
+$avg_ratings = array();
 foreach ($recipes as $recipe) {
 
     // query recipe pictures
@@ -59,13 +64,42 @@ foreach ($recipes as $recipe) {
     } else {
         echo "query recipe picture error";
     }
+
+    // avg_rating
+    $avg_ratings[$recipe["recipe_id"]] = 2.5;
+    $query_str = "SELECT avg(ratings) AS avg_rating FROM Review where recipe_id = ?";
+    if ($query = $conn->prepare($query_str)) {
+        $query->bind_param('i', $recipe["recipe_id"]);
+        $query->execute();
+        $result = $query->get_result();
+        $row = $result->fetch_array(MYSQLI_ASSOC);
+        $avg_ratings[$recipe["recipe_id"]] = (float)($row["avg_rating"]);
+        $query->close();
+    } else {
+        echo "query recipe picture error";
+    }
+}
+
+// insert search_log
+$pure_search_word = substr($search_word, 1, strlen($search_word) - 2);
+$query_str = "INSERT INTO user_log (user_id, event_name, event_time, params) VALUES (?, 'search_recipe', '".date("Y-m-d H:i:s") . "', ?)";
+if ($query = $conn->prepare($query_str)) {
+    $query->bind_param('is', $user_id, $pure_search_word);
+    $query->execute();
+    $query->close();
+} else {
+    echo $conn->error;
+    echo "insert log error";
 }
 
 // test
+echo '<br/><br/>recipes: <br/>';
 print_r($recipes);
-echo '<br/>';
+echo '<br/><br/>pictures: <br/>';
 print_r($pictures);
-echo '<br/>';
+echo '<br/><br/>tags: <br/>';
 print_r($tags);
+echo '<br/><br/>avg_ratings: <br/>';
+print_r($avg_ratings);
 
 ?>
