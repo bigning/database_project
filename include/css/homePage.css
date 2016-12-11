@@ -35,10 +35,17 @@
 
 .recipe-div{
 	padding: 15px 30px 15px 30px;
-	margin: 50px 0;
+	margin: 50px 0px;
 }
 
+.page-left-div{
+	padding-left: 0;
+}
 
+.modal-content{
+	background-color: rgba(255,255,255,0.9);
+	color: black;
+}
 
 
 html{

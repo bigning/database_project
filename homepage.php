@@ -89,6 +89,7 @@ if ($query = $conn->prepare("SELECT distinct Recipe.recipe_title, Recipe.recipe_
 
 <!-- FE -->
 <?php require "./include/partials/navHeader.php" ?>
+
 <ul class="navbar-text navbar-right">
 
     <!-- User icon -->
@@ -106,11 +107,11 @@ if ($query = $conn->prepare("SELECT distinct Recipe.recipe_title, Recipe.recipe_
 <?php require "./include/partials/navFooter.php" ?>
 
 <!-- create -->
-<div class = "contianer create col-md-1">
+<div class = "page-left-div col-md-1">
     
-<!-- bootstrap -->
-    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-      Launch demo modal
+    <!-- button -->
+    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">
+      Create Group
     </button>
 
     <!-- Modal -->
@@ -119,14 +120,19 @@ if ($query = $conn->prepare("SELECT distinct Recipe.recipe_title, Recipe.recipe_
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+            <h4 class="modal-title" id="myModalLabel">Create Group</h4>
           </div>
           <div class="modal-body">
-            ...
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
+            <form class="form-inline" method="GET" action="./create_group.php">
+                <div class="form-group">
+                    <label for = "group-name">Group Name</label>
+                    <input type="text" class = "form-control" name="group_name" id = "group-name">
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </form>
           </div>
         </div>
       </div>
