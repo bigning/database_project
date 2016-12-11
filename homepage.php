@@ -43,7 +43,7 @@ if ($query = $conn->prepare("SELECT Recipe.recipe_id, Recipe.recipe_title FROM R
 }
 
 // query GroupMeetingRSVP
-if ($query = $conn->prepare("SELECT Groups.group_id, Groups.group_name, Groups.group_owner, GroupMeeting.meeting_id, GroupMeeting.meeting_name, GroupMeeting.organiser_id FROM Groups JOIN GroupMember ON Groups.group_id=GroupMember.group_id JOIN GroupMeeting ON Groups.group_id=GroupMeeting.group_id JOIN MeetingRSVP ON GroupMeeting.meeting_id=MeetingRSVP.meeting_id WHERE GroupMember.user_id = ?;")) {
+if ($query = $conn->prepare("SELECT distinct Groups.group_id, Groups.group_name, Groups.group_owner, GroupMeeting.meeting_id, GroupMeeting.meeting_name, GroupMeeting.organiser_id FROM Groups JOIN GroupMember ON Groups.group_id=GroupMember.group_id JOIN GroupMeeting ON Groups.group_id=GroupMeeting.group_id JOIN MeetingRSVP ON GroupMeeting.meeting_id=MeetingRSVP.meeting_id WHERE GroupMember.user_id = ?;")) {
     $query->bind_param('i', $user_id);
     $query->execute();
     $result = $query->get_result();
@@ -56,7 +56,7 @@ if ($query = $conn->prepare("SELECT Groups.group_id, Groups.group_name, Groups.g
 }
 
 // query recipes user recently looked at
-if ($query = $conn->prepare("SELECT Recipe.recipe_title, Recipe.recipe_id FROM Recipe JOIN user_log ON Recipe.recipe_id = user_log.params WHERE user_log.user_id = ? AND user_log.event_name='look_recipe' ORDER BY user_log.event_time DESC limit 5;")) {
+if ($query = $conn->prepare("SELECT distinct Recipe.recipe_title, Recipe.recipe_id FROM Recipe JOIN user_log ON Recipe.recipe_id = user_log.params WHERE user_log.user_id = ? AND user_log.event_name='look_recipe' ORDER BY user_log.event_time DESC limit 5;")) {
     $query->bind_param('i', $user_id);
     $query->execute();
     $result = $query->get_result();
