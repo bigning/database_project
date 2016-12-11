@@ -107,16 +107,37 @@ if ($query = $conn->prepare("SELECT Recipe.recipe_title, Recipe.recipe_id FROM R
 
 <!-- create -->
 <div class = "contianer create col-md-1">
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-    consequat. Duis aute irure dlaborum.</p>
+    
+<!-- bootstrap -->
+    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+      Launch demo modal
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+          </div>
+          <div class="modal-body">
+            ...
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
 </div>
 
 
 
 <!-- Recipes -->
-<div class = "container recipe-div col-md-7">
+<div class = "container recipe-div col-md-8">
     <table class = "table">
         <thead class = "thead-default">
             <th>My Recipes</th>
@@ -134,8 +155,8 @@ if ($query = $conn->prepare("SELECT Recipe.recipe_title, Recipe.recipe_id FROM R
 </div>
 
 
-<!-- Page left -->
-<div class = "page-right-div col-md-4">
+<!-- Page right -->
+<div class = "page-right-div col-md-3">
 
     <!-- Group Membership -->
     <table class = "table">
