@@ -7,7 +7,7 @@
 }
 
 .dropdown-menu{
-	background-color: rgba(0,0,0,0.3);
+	background-color: rgba(0,0,0,0.9);
 
 }
 
@@ -47,6 +47,23 @@
 	color: black;
 }
 
+.page-left-button{
+	margin-bottom: 15px;
+}
+
+.ingredient-inputs{
+	margin-right: 10px;
+}
+
+.thumb {
+    height: 75px;
+    border: 1px solid #000;
+    margin: 10px 5px 0 0;
+}
+
+.ingredient-div div, .step-div div{
+	margin-bottom: 5px;
+}
 
 html{
 	height: 100%;

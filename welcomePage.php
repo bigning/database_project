@@ -9,6 +9,15 @@ if (array_key_exists("source", $_GET)) {
 }
 ?>
 
+
+
+
+
+
+
+
+
+
 <!-- Front End -->
 
 <form class = "navbar-form navbar-right" method = "GET" action = "./login.php">
@@ -46,4 +55,5 @@ if (array_key_exists("source", $_GET)) {
 	</form>
 
 <link rel="stylesheet" type="text/css" href="./include/css/welcomePage.css">
+<script type="text/javascript" src = "./include/framework/jquery-3.1.1.min.js"></script>
 <?php require "./include/partials/footer.php" ?>
