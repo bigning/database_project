@@ -108,6 +108,23 @@ if ($query = $conn->prepare("SELECT distinct Recipe.recipe_title, Recipe.recipe_
 
 </ul>
 
+<!-- Search for group -->
+<form class="navbar-form navbar-right navbar-search" role="search" method="GET" action="./groups.php">
+  <div class="form-group">
+    <input type="text" class="form-control" placeholder="Search Group" name = "query">
+  </div>
+  <button type="submit" class="btn btn-default btn-sm">  <span class="glyphicon glyphicon-user" aria-hidden="true">Go!</span> </button>
+</form>
+
+<!-- Search for recipe -->
+<form class="navbar-form navbar-right navbar-search" role="search" action="./recipes.php">
+  <div class="form-group">
+    <input type="text" class="form-control" placeholder="Search Recipe" name = "query">
+  </div>
+  <button type="submit" class="btn btn-default btn-sm"><span class = "glyphicon glyphicon-grain" aria-hidden="true">Go!</span></button>
+</form>
+
+
 <?php require "./include/partials/navFooter.php" ?>
 
 <!-- create -->
@@ -121,6 +138,7 @@ if ($query = $conn->prepare("SELECT distinct Recipe.recipe_title, Recipe.recipe_
     <button type="button" class="btn btn-warning btn-sm page-left-button" data-toggle="modal" data-target="#recipe-modal">
       Create Recipe
     </button>
+
 
     <!-- Modal -->
     <div class="modal fade" id="group-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -196,7 +214,8 @@ if ($query = $conn->prepare("SELECT distinct Recipe.recipe_title, Recipe.recipe_
                     <input type="text" name="tags" class="form-control" placeholder="Please seperate your tag with , ">
                 </div>
                 </div>
-                <button type="submit" class="btn btn-default">Submit</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Submit</button>
             </form>
 
 
@@ -283,7 +302,6 @@ if ($query = $conn->prepare("SELECT distinct Recipe.recipe_title, Recipe.recipe_
     </table>
 
 </div>
-
 
 
 <link rel="stylesheet" type="text/css" href="./include/css/homePage.css">
