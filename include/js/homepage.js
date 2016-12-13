@@ -49,7 +49,7 @@ $("#add_ingredient_button").on("click", function(){
 
 	$(" <input type='number' placeholder='Quantity' required class = 'ingredient-inputs'>").attr("name", "ingredient_quantity_" + ingredient.toString()).appendTo("#ingredient_tuple_" + ingredient.toString());
 
-	$(" <select  required class = 'ingredient-inputs'> <option value = 'lb'>lb</option> <option value = 'oz'>oz</option> <option value = 'l'>l</option> <option value = 'ml'>ml</option> <option value = 'tbsp'>tbsp</option> <option value = 'tsp'>tsp</option> </select>").attr("name", "ingredient_unit_" + ingredient.toString()).appendTo("#ingredient_tuple_" + ingredient.toString());
+	$(" <select  required class = 'ingredient-inputs'> <option value = 'lb'>lb</option> <option value = 'g'>g</option> <option value = 'oz'>oz</option> <option value = 'l'>l</option> <option value = 'ml'>ml</option> <option value = 'tbsp'>tbsp</option> <option value = 'tsp'>tsp</option> </select>").attr("name", "ingredient_unit_" + ingredient.toString()).appendTo("#ingredient_tuple_" + ingredient.toString());
 
 	// update variable
 	ingredient++;
