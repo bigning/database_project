@@ -1,5 +1,4 @@
 <?php
-error_reporting(-1);
 require 'db_util.php';
 
 $user_name = $_POST["username"];
