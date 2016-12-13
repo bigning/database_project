@@ -1,5 +1,5 @@
 <?php
-// return recipe_id, recipe_title, recipe_name, user_id , user_icon, num_servings IN recipe
+// return recipe_id, recipe_title, recipe_name, user_id , user_icon, num_servings, user_name IN recipe
 // return recipe_id, ingredients, quantity, unit IN ingredients 
 // return recipe_id, step_id, step_description, step_image IN steps
 // return tags in tags
@@ -14,7 +14,7 @@ if (!array_key_exists("recipe_id", $_GET)) {
 $recipe_id = $_GET["recipe_id"];
 
 // get recipe_name, owner_name, owner_icon, num_servings.
-$query_str = "SELECT Recipe.recipe_id, Recipe.recipe_title, Recipe.user_id, Recipe.num_servings, User.user_icon FROM Recipe JOIN User ON Recipe.user_id = User.user_id  where recipe_id = ?";
+$query_str = "SELECT Recipe.recipe_id, Recipe.recipe_title, Recipe.user_id, Recipe.num_servings, User.user_icon, User.user_name FROM Recipe JOIN User ON Recipe.user_id = User.user_id  where recipe_id = ?";
 if ($query = $conn->prepare($query_str)) {
     $query->bind_param('i', $recipe_id);
     $query->execute();
