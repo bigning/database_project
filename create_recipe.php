@@ -76,13 +76,42 @@ if (strlen($_POST["tags"]) > 0) {
     $tag_arr = explode(",", $tags);
         print_r($tag_arr);
     foreach ($tag_arr as $tag) {
+        $tag = strtolower($tag);
         $query = $conn->prepare("INSERT INTO Tag(tag) VALUES (?)");
         $query->bind_param('s',  $tag);
         $query->execute();
 
+        // select recipe_id having the same tag
+        $query_str = "SELECT RecipeTag.recipe_id AS recipe_id FROM RecipeTag WHERE tag = ?";
+        $related_id = -1;
+        if ($query = $conn->prepare($query_str)) {
+            $query->bind_param('s', $tag);
+            $query->execute();
+            $result = $query->get_result();
+            //$row = $result->fetch_array(MYSQLI_ASSOC);
+            //
+            while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
+                //echo $row['recipe_title'] . '\n ';
+                $related_id = (int)$row["recipe_id"];
+
+                if ($related_id > 0) {
+                    $query = $conn->prepare("INSERT INTO RecipeRelation(recipe_id, relate_to) VALUES (?, ?)");
+                    $query->bind_param('ii', $recipe_id, $related_id);
+                    $query->execute();
+                }
+            }
+
+
+            $query->close();
+        } else {
+            echo $conn->error;
+            echo "query recipe picture error";
+        }
+
         $query = $conn->prepare("INSERT INTO RecipeTag(recipe_id, tag) VALUES (?, ?)");
         $query->bind_param('is', $recipe_id, $tag);
         $query->execute();
+
     }
 }
 
