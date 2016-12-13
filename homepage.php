@@ -151,7 +151,7 @@ if ($query = $conn->prepare("SELECT distinct Recipe.recipe_title, Recipe.recipe_
 
 
             <!-- form -->
-            <form method = "POST" action="./create_recipe.php">
+            <form method = "POST" action="./create_recipe.php" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="recipe_title">Recipe Title</label>
                     <input type="text" class="form-control" id="recipe_title" placeholder="Recipe Title" name = "recipe_title" required>

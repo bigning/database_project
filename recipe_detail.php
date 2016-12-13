@@ -127,14 +127,14 @@ if ($query = $conn->prepare($query_str)) {
 
 
 // test
-echo "<br/><br/>Recipe: <br/>";
-print_r($recipe);
+// echo "<br/><br/>Recipe: <br/>";
+// print_r($recipe);
 echo "<br/><br/>Ingredients: <br/>";
 print_r($ingredients);
 echo "<br/><br/>Steps: <br/>";
 print_r($steps);
-echo "<br/><br/>Tags: <br/>";
-print_r($tags);
+// echo "<br/><br/>Tags: <br/>";
+// print_r($tags);
 echo "<br/><br/>relate to: <br/>";
 print_r($relate_recipes);
 echo "<br/><br/>reviews: <br/>";
@@ -148,8 +148,6 @@ print_r($reviews);
 
 <!-- FE test -->
 
-
-
 <!-- FE -->
 <!-- Navbar -->
 <?php require "./include/partials/navHeader.php" ?>
@@ -158,6 +156,43 @@ print_r($reviews);
 
 <?php require "./include/partials/navFooter.php" ?>
 
+<!-- jumbotron -->
+<div class = "container">
+    <div class="jumbotron">
+        <h1 id = "recipe-title"><?php echo $recipe["recipe_title"] ?></h1>
+        <p>Number of Servings:
+            <?php 
+                for ($x = 0; $x < $recipe["num_servings"]; $x++){
+                    echo "<span class='glyphicon glyphicon-glass' aria-hidden='true' ></span>";
+                }
+            ?>
+        </p>
+        <p>
+            <?php 
+                if (!empty($tags)){
+                    echo "Tags: ";
+                    foreach ($tags as $value) {
+                        echo "<span>" . $value["tag"] . "</span> ";
+                    }
+                }
+            ?>
+        </p>
+        <div id = "recipe-user">
+            <span>Provide by: </span>
+            <?php 
+                if ($recipe["user_icon"] != null){
+                    echo '<img src="' . $user_icon . '" class = "thumbnail user_icon" >';
+                }
+                echo "<span>" . $recipe["user_id"] . "</span>";
+            ?>
+        </div>
+    </div>
+</div>
 
+
+
+
+<link rel="stylesheet" type="text/css" href="./include/css/recipe_detail.css">
 <script type="text/javascript" src = "./include/framework/jquery-3.1.1.min.js"></script>
+<script type="text/javascript" src = "./include/js/recipe_detail.js"></script>
 <?php require "./include/partials/footer.php" ?>

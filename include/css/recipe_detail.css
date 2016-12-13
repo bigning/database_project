@@ -1,0 +1,36 @@
+@import url('//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css');
+
+#recipe-title{
+	text-align: center;
+}
+
+#recipe-user{
+	text-align: right;
+}
+
+.glyphicon-glass{
+	margin: 0 5px;
+}
+
+.jumbotron{
+	background-color: rgba(0,0,0,0.7);
+}
+
+.container{
+	width: 90%;
+}
+
+
+
+
+html{
+	height: 100%;
+}
+
+body{
+	background: url(../images/recipe_detail.jpeg);
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	color: white;
+}

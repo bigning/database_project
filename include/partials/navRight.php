@@ -3,10 +3,10 @@
     <!-- User icon -->
     <?php 
         if ($user_icon != null){
-            echo '<img src="' . $user_icon . '" class = "thumbnail" id = "user_icon">';
+            echo '<img src="' . $user_icon . '" class = "thumbnail user_icon" >';
         }
     ?>
-
+    
     <!-- Drop Down -->
     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <?php echo $user_name ?> <span class="caret"></span></a>
     <ul class="dropdown-menu">

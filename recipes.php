@@ -121,6 +121,6 @@ print_r($avg_ratings);
 
 <?php require "./include/partials/navFooter.php" ?>
 
-
+<link rel="stylesheet" type="text/css" href="./include/css/recipes.css">
 <script type="text/javascript" src = "./include/framework/jquery-3.1.1.min.js"></script>
 <?php require "./include/partials/footer.php" ?>

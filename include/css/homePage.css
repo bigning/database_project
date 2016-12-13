@@ -57,7 +57,9 @@
 }
 
 
-
+a{
+	color: white;
+}
 
 html{
 	height: 100%;
@@ -73,9 +75,4 @@ body{
 
 th{
 	text-align: center;
-}
-
-
-a{
-	color: white;
 }
