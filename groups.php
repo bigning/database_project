@@ -29,3 +29,26 @@ if ($query = $conn->prepare($query_str)) {
 echo '<br/><br/>groups: <br/>';
 print_r($groups);
 ?>
+
+
+
+
+
+<!-- FE test -->
+
+
+
+<!-- FE -->
+<!-- Navbar -->
+<?php require "./include/partials/navHeader.php" ?>
+
+<?php require "./include/partials/navRight.php" ?>
+
+<?php require "./include/partials/navFooter.php" ?>
+
+
+<script type="text/javascript" src = "./include/framework/jquery-3.1.1.min.js"></script>
+<?php require "./include/partials/footer.php" ?>
+
+
+
