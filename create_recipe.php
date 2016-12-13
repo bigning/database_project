@@ -74,7 +74,12 @@ while (true) {
 if (strlen($_POST["tags"]) > 0) {
     $tags = $_POST["tags"];
     $tag_arr = explode(",", $tags);
+        print_r($tag_arr);
     foreach ($tag_arr as $tag) {
+        $query = $conn->prepare("INSERT INTO Tag(tag) VALUES (?)");
+        $query->bind_param('s',  $tag);
+        $query->execute();
+
         $query = $conn->prepare("INSERT INTO RecipeTag(recipe_id, tag) VALUES (?, ?)");
         $query->bind_param('is', $recipe_id, $tag);
         $query->execute();
@@ -82,7 +87,6 @@ if (strlen($_POST["tags"]) > 0) {
 }
 
 header("Location: ./recipe_detail.php?recipe_id=$recipe_id");
-
 
 //test
 echo $recipe_title;
