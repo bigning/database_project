@@ -103,3 +103,24 @@ echo '<br/><br/>avg_ratings: <br/>';
 print_r($avg_ratings);
 
 ?>
+
+
+
+
+
+
+<!-- FE test -->
+
+
+
+<!-- FE -->
+<!-- Navbar -->
+<?php require "./include/partials/navHeader.php" ?>
+
+<?php require "./include/partials/navRight.php" ?>
+
+<?php require "./include/partials/navFooter.php" ?>
+
+
+<script type="text/javascript" src = "./include/framework/jquery-3.1.1.min.js"></script>
+<?php require "./include/partials/footer.php" ?>

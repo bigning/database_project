@@ -3,7 +3,7 @@
 <head>
 	<title>Cookzilla</title>
 	<link rel="stylesheet" type="text/css" href="./include/framework/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="./include/css/navHeader.css">
+	<link rel="stylesheet" type="text/css" href="./include/css/navbar.css">
 
 </head>
 <body>
