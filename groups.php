@@ -26,8 +26,8 @@ if ($query = $conn->prepare($query_str)) {
 }
 
 // test
-echo '<br/><br/>groups: <br/>';
-print_r($groups);
+// echo '<br/><br/>groups: <br/>';
+// print_r($groups);
 ?>
 
 
@@ -47,6 +47,23 @@ print_r($groups);
 <?php require "./include/partials/navFooter.php" ?>
 
 
+<div class = "container">
+    <div class = "jumbotron">
+        <h2>Group Search Result</h2>
+        <?php 
+            if (!empty($groups)){
+                foreach ($groups as $value) {
+                    echo "<div class = 'group-tuple'>";
+                    echo "<a href='./group_detail.php?group_id=" . $value["group_id"] . "'>" . $value["group_name"]. "</a>";
+                    echo "</div>";
+                }
+            }
+        ?>
+    </div>
+</div>
+
+
+<link rel="stylesheet" type="text/css" href="./include/css/groups.css">
 <script type="text/javascript" src = "./include/framework/jquery-3.1.1.min.js"></script>
 <?php require "./include/partials/footer.php" ?>
 

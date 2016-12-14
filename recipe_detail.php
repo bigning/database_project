@@ -309,7 +309,7 @@ if ($query = $conn->prepare($query_str)) {
             if (!empty($relate_recipes)){
                 foreach ($relate_recipes as $value) {
                     echo "<div class = 'related-tuple'>";
-                    echo "<a href='recipe_detail.php?recipe_id=" . $value["relate_to"] . "'>" . $value["recipe_title"]. "</a>";
+                    echo "<a href='./recipe_detail.php?recipe_id=" . $value["relate_to"] . "'>" . $value["recipe_title"]. "</a>";
                     echo "</div>";
                 }
             }
