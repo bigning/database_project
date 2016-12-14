@@ -93,14 +93,14 @@ if ($query = $conn->prepare($query_str)) {
 }
 
 // test
-echo '<br/><br/>recipes: <br/>';
-print_r($recipes);
-echo '<br/><br/>pictures: <br/>';
-print_r($pictures);
-echo '<br/><br/>tags: <br/>';
-print_r($tags);
-echo '<br/><br/>avg_ratings: <br/>';
-print_r($avg_ratings);
+// echo '<br/><br/>recipes: <br/>';
+// print_r($recipes);
+// echo '<br/><br/>pictures: <br/>';
+// print_r($pictures);
+// echo '<br/><br/>tags: <br/>';
+// print_r($tags);
+// echo '<br/><br/>avg_ratings: <br/>';
+// print_r($avg_ratings);
 
 ?>
 
@@ -121,6 +121,53 @@ print_r($avg_ratings);
 
 <?php require "./include/partials/navFooter.php" ?>
 
+<div class = "container">
+    <div class = "jumbotron">
+        <?php 
+            if (!empty($recipes)){
+                foreach ($recipes as $value) {
+                    $curr_id = $value["recipe_id"];
+                    echo "<div class = 'recipe-tuple'>";
+
+                    // show the recipe image or default if no images provide
+                    echo "<img class = 'thumbnail recipe-image' src='";
+                    $image_count = count($pictures[$curr_id]);
+                    if(!empty($pictures[$curr_id][$image_count - 1])){
+                        echo $pictures[$curr_id][$image_count - 1];
+                    } else {
+                        echo "./include/images/not_found_image.jpeg";
+                    }
+                    echo "'>";
+
+                    //show recipe title
+                    echo "<a class = 'recipe-title' href='./recipe_detail.php?recipe_id=";
+                    echo $value["recipe_id"];
+                    echo "'>";
+                    echo $value["recipe_title"];
+                    echo "</a>";
+
+                    // show rating
+                    echo "<div id='stars-existing' class='starrr' data-rating='";
+                    echo $avg_ratings[$curr_id];
+                    echo "'></div>";
+
+                    // show tags
+                    echo "<div class = 'tags'>";
+                    if(!empty($tags[$curr_id])){
+                        foreach ($tags[$curr_id] as $value) {
+                            echo "<span class='label label-danger'>" . $value . "</span>";
+                        }
+                    }
+                    echo "</div>";
+
+                    echo "</div>";
+                }
+            }
+        ?>
+    </div>
+</div>
+
 <link rel="stylesheet" type="text/css" href="./include/css/recipes.css">
 <script type="text/javascript" src = "./include/framework/jquery-3.1.1.min.js"></script>
+<script type="text/javascript" src = "./include/js/recipes.js"></script>
 <?php require "./include/partials/footer.php" ?>
