@@ -91,6 +91,8 @@ echo "<br/><br/>meetings: <br/>";
 print_r($meetings);
 echo "<br/><br/>is_rsvps: <br/>";
 print_r($is_rsvp);
+echo "<br/><br/>curr_user: <br/>";
+print($user_id);
 
 ?>
 
@@ -112,5 +114,35 @@ print_r($is_rsvp);
 <?php require "./include/partials/navFooter.php" ?>
 
 
+<!-- group title -->
+<div class = "container">
+    <div class = "jumbotron">
+        <?php 
+            // title
+            echo "<h1 id = 'group-title'>" . $group["group_name"] . "</h1>";
+
+            // join or quit button
+            if ($is_member){
+                if ($user_id === $group["group_owner"]){
+                    echo "<button type='button' class='btn btn-lg btn-warning' disabled>Quit Group</button>";
+                } else {
+                    echo "<button type='submit' class='btn btn-lg btn-primary' formaction = './include/asdf.php'>Quit Group</button>";
+                }
+            }
+
+            // group owner
+            echo "<div class = 'host-div'>";
+            echo "<span>" . "Owner: " . "</span>";
+            if ($group["owner_icon"] != null){
+                echo '<img src="' . $group["owner_icon"] . '" class = "thumbnail user_icon" >';
+            }
+            echo "<span>" . "need to provide" . "</span>";
+            echo "</div>";
+        ?>
+    </div>
+</div>
+
+
+<link rel="stylesheet" type="text/css" href="./include/css/group_detail.css">
 <script type="text/javascript" src = "./include/framework/jquery-3.1.1.min.js"></script>
 <?php require "./include/partials/footer.php" ?>

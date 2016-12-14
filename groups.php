@@ -50,11 +50,26 @@ if ($query = $conn->prepare($query_str)) {
 <div class = "container">
     <div class = "jumbotron">
         <h2>Group Search Result</h2>
+        <hr id = "search-hr">
         <?php 
             if (!empty($groups)){
                 foreach ($groups as $value) {
                     echo "<div class = 'group-tuple'>";
+                    // title
                     echo "<a href='./group_detail.php?group_id=" . $value["group_id"] . "'>" . $value["group_name"]. "</a>";
+
+                    // num of people in group
+                    echo "<p>" . $value["member_numer"] . " member </p>";
+
+                    // Owner
+                    echo "<div class = 'host-div'>";
+                    echo "<span>" . "Owner: " . "</span>";
+                    if ($value["user_icon"] != null){
+                        echo '<img src="' . $value["user_icon"] . '" class = "thumbnail user_icon" >';
+                    }
+                    echo "<span>" . $value["user_name"] . "</span>";
+                    echo "</div>";
+
                     echo "</div>";
                 }
             }

@@ -1,0 +1,36 @@
+
+#group-title{
+	text-align: center;
+}
+
+
+
+.jumbotron{
+	background-color: rgba(0,0,0,0.7);
+	overflow: auto;
+}
+
+.container{
+	width: 90%;
+}
+
+
+.host-div{
+	text-align: right;
+}
+
+
+
+
+html{
+	height: 100%;
+}
+
+body{
+	background: url(../images/group_detail.jpeg);
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	color: white;
+}
