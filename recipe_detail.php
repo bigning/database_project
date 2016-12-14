@@ -129,16 +129,16 @@ if ($query = $conn->prepare($query_str)) {
 // test
 // echo "<br/><br/>Recipe: <br/>";
 // print_r($recipe);
-echo "<br/><br/>Ingredients: <br/>";
-print_r($ingredients);
-echo "<br/><br/>Steps: <br/>";
-print_r($steps);
+// echo "<br/><br/>Ingredients: <br/>";
+// print_r($ingredients);
+// echo "<br/><br/>Steps: <br/>";
+// print_r($steps);
 // echo "<br/><br/>Tags: <br/>";
 // print_r($tags);
-echo "<br/><br/>relate to: <br/>";
-print_r($relate_recipes);
-echo "<br/><br/>reviews: <br/>";
-print_r($reviews);
+// echo "<br/><br/>relate to: <br/>";
+// print_r($relate_recipes);
+// echo "<br/><br/>reviews: <br/>";
+// print_r($reviews);
 
 ?>
 
@@ -156,7 +156,7 @@ print_r($reviews);
 
 <?php require "./include/partials/navFooter.php" ?>
 
-<!-- jumbotron -->
+<!-- Recipe title -->
 <div class = "container">
     <div class="jumbotron">
         <h1 id = "recipe-title"><?php echo $recipe["recipe_title"] ?></h1>
@@ -181,15 +181,90 @@ print_r($reviews);
             <span>Provide by: </span>
             <?php 
                 if ($recipe["user_icon"] != null){
-                    echo '<img src="' . $user_icon . '" class = "thumbnail user_icon" >';
+                    echo '<img src="' . $recipe["user_icon"] . '" class = "thumbnail user_icon" >';
                 }
-                echo "<span>" . $recipe["user_id"] . "</span>";
+                echo "<span>" . $recipe["user_name"] . "</span>";
             ?>
         </div>
     </div>
 </div>
 
 
+<!-- Ingredients -->
+<div class = "container">
+    <div class = "jumbotron">
+     <h2>Ingredients </h2>
+        <?php 
+            if (!empty($ingredients)){
+                foreach ($ingredients as $value) {
+                    echo "<div class = 'ingredient-tuple'>";
+                    echo "<span>" . $value["ingredients"] . "</span>";
+                    echo "<span>" . $value["quantity"] . "</span>";
+                    echo "<span>" . $value["unit"] . "</span>";
+                    echo "</div>";
+                }
+            }
+        ?>
+    </div>
+</div>
+
+
+<!-- Steps -->
+<div class = "container">
+    <div class = "jumbotron">
+    <h2>Step </h2>
+        <?php 
+            if (!empty($steps)){
+                foreach ($steps as $value) {
+                    echo "<div class = 'step-tuple'>";
+                    echo "<p>" . $value["step_description"];
+                    if(!empty($value["step_image"])){
+                        echo "<img src='" . $value["step_image"] . "' class = 'thumbnail step-image'></p>";
+                    }
+                    echo "</div>";
+                }
+            }
+        ?>
+    </div>
+</div>
+
+
+<!-- Review -->
+<div class = "container">
+    <div class = "jumbotron">
+    <h2>Review </h2>
+        <?php 
+            if (!empty($reviews)){
+                
+                foreach ($reviews as $value) {
+                    echo "<div class = 'review-tuple'>";
+                    echo "<h3>" . $value["review_title"] . "<div id='stars-existing' class='starrr rating-star' data-rating=" . $value["ratings"] . "></div>" . "</h3>";
+                    echo "<p class = 'review-text'>" . $value["text"] . "</p>";
+                    echo "<p class = 'review-text'> Suggestion: " . $value["suggestions"] . "</p>";
+                    echo "<span>By " . $value["user_name"] . "</span>";
+                    echo "</div>";
+                }
+            }
+        ?>
+    </div>
+</div>
+
+<a href=""></a>
+<!-- Relate to -->
+<div class = "container">
+    <div class = "jumbotron">
+        <h3>Related Recipes</h3>
+        <?php 
+            if (!empty($relate_recipes)){
+                foreach ($relate_recipes as $value) {
+                    echo "<div class = 'related-tuple'>";
+                    echo "<a href='recipe_detail.php?recipe_id=" . $value["relate_to"] . "'>" . $value["recipe_title"]. "</a>";
+                    echo "</div>";
+                }
+            }
+        ?>
+    </div>
+</div>
 
 
 <link rel="stylesheet" type="text/css" href="./include/css/recipe_detail.css">

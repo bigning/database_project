@@ -14,13 +14,72 @@
 
 .jumbotron{
 	background-color: rgba(0,0,0,0.7);
+	overflow: auto;
 }
 
 .container{
 	width: 90%;
 }
 
+.ingredient-tuple{
+	width: 33%;
+	float: left;
+	padding-left: 100px;
+}
 
+.ingredient-tuple span{
+	margin-right: 30px;
+}
+
+.step-tuple{
+	margin-bottom: 40px;
+	overflow: auto;
+}
+
+.step-tuple img{
+	float: right;
+	width: 300px;
+	height: 200px;
+}
+
+.review-tuple{
+	margin-bottom: 50px;	
+}
+
+.review-tuple span{
+	display: block;
+	text-align: right;
+}
+
+.review-tuple h3{
+	margin-left: 35px;
+	margin-top: 0;
+}
+
+.review-tuple p{
+	margin-left: 60px;
+}
+
+.review-text {
+	border-left: 2px orange solid;
+	padding-left: 10px;
+}
+
+.rating-star{
+	display: inline-block;
+	margin-left: 30px;
+	color: yellow;
+}
+
+.related-tuple{
+	width: 33%;
+	float: left;
+	text-align: center;
+}
+
+.related-tuple a{
+	color: white;
+}
 
 
 html{
@@ -32,5 +91,6 @@ body{
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
+	background-attachment: fixed;
 	color: white;
 }
