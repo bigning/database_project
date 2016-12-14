@@ -61,9 +61,9 @@ $("#add_step_button").on("click", function(){
 	$("<div></div>").attr("id", "step_tuple_" + step.toString()).appendTo(".step-div");
 
 	// add inputs into this new div
-	$("<textarea class = 'form-control' rows='2' required placeholder = 'Describe how you cook it! You could upload multiple images for better explanation'></textarea>").attr("name", "step_" + step.toString()).appendTo("#step_tuple_" + step.toString());
+	$("<textarea class = 'form-control' rows='2' required placeholder = 'Describe how you cook it! You could upload image for better explanation'></textarea>").attr("name", "step_" + step.toString()).appendTo("#step_tuple_" + step.toString());
 
-	$(" <input type='file'>").attr("id", "file_" + step.toString()).attr("name", "step_file_" + step.toString()).attr("multiple", "").appendTo("#step_tuple_" + step.toString());
+	$(" <input type='file'>").attr("id", "file_" + step.toString()).attr("name", "step_file_" + step.toString()).appendTo("#step_tuple_" + step.toString());
 
 	$(" <output></output>").attr("id", "list_" + step.toString()).appendTo("#step_tuple_" + step.toString());
 

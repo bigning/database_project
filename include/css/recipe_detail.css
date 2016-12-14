@@ -1,11 +1,32 @@
 @import url('//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css');
 
+#review-h2{
+	display: inline-block;
+}
+
+#review-button{
+	margin-bottom: 10px;
+	margin-left: 20px;
+}
+
 #recipe-title{
 	text-align: center;
 }
 
 #recipe-user{
 	text-align: right;
+}
+
+#stars{
+	font-size: 1.5em;
+	color: #F5D907;
+}
+
+
+
+.modal-content{
+	background-color: rgba(255,255,255,0.95);
+	color: black;
 }
 
 .glyphicon-glass{
@@ -80,6 +101,10 @@
 .related-tuple a{
 	color: white;
 }
+
+
+
+
 
 
 html{

@@ -148,6 +148,8 @@ if ($query = $conn->prepare($query_str)) {
 
 <!-- FE test -->
 
+
+
 <!-- FE -->
 <!-- Navbar -->
 <?php require "./include/partials/navHeader.php" ?>
@@ -193,18 +195,18 @@ if ($query = $conn->prepare($query_str)) {
 <!-- Ingredients -->
 <div class = "container">
     <div class = "jumbotron">
-     <h2>Ingredients </h2>
-        <?php 
-            if (!empty($ingredients)){
-                foreach ($ingredients as $value) {
-                    echo "<div class = 'ingredient-tuple'>";
-                    echo "<span>" . $value["ingredients"] . "</span>";
-                    echo "<span>" . $value["quantity"] . "</span>";
-                    echo "<span>" . $value["unit"] . "</span>";
-                    echo "</div>";
-                }
+    <h2>Ingredients </h2>
+    <?php 
+        if (!empty($ingredients)){
+            foreach ($ingredients as $value) {
+                echo "<div class = 'ingredient-tuple'>";
+                echo "<span>" . $value["ingredients"] . "</span>";
+                echo "<span>" . $value["quantity"] . "</span>";
+                echo "<span>" . $value["unit"] . "</span>";
+                echo "</div>";
             }
-        ?>
+        }
+    ?>
     </div>
 </div>
 
@@ -213,18 +215,18 @@ if ($query = $conn->prepare($query_str)) {
 <div class = "container">
     <div class = "jumbotron">
     <h2>Step </h2>
-        <?php 
-            if (!empty($steps)){
-                foreach ($steps as $value) {
-                    echo "<div class = 'step-tuple'>";
-                    echo "<p>" . $value["step_description"];
-                    if(!empty($value["step_image"])){
-                        echo "<img src='" . $value["step_image"] . "' class = 'thumbnail step-image'></p>";
-                    }
-                    echo "</div>";
+    <?php 
+        if (!empty($steps)){
+            foreach ($steps as $value) {
+                echo "<div class = 'step-tuple'>";
+                echo "<p>" . $value["step_description"];
+                if(!empty($value["step_image"])){
+                    echo "<img src='" . $value["step_image"] . "' class = 'thumbnail step-image'></p>";
                 }
+                echo "</div>";
             }
-        ?>
+        }
+    ?>
     </div>
 </div>
 
@@ -232,20 +234,69 @@ if ($query = $conn->prepare($query_str)) {
 <!-- Review -->
 <div class = "container">
     <div class = "jumbotron">
-    <h2>Review </h2>
-        <?php 
-            if (!empty($reviews)){
-                
-                foreach ($reviews as $value) {
-                    echo "<div class = 'review-tuple'>";
-                    echo "<h3>" . $value["review_title"] . "<div id='stars-existing' class='starrr rating-star' data-rating=" . $value["ratings"] . "></div>" . "</h3>";
-                    echo "<p class = 'review-text'>" . $value["text"] . "</p>";
-                    echo "<p class = 'review-text'> Suggestion: " . $value["suggestions"] . "</p>";
-                    echo "<span>By " . $value["user_name"] . "</span>";
-                    echo "</div>";
-                }
+    <h2 id = "review-h2">Review </h2>
+
+    <!-- Review Button -->
+    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#write-review" id = "review-button">
+      New Review
+    </button>
+
+    <!-- Review Modal -->
+    <div class="modal fade" id="write-review" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Write Review</h4>
+          </div>
+          <div class="modal-body">
+            <form method="GET" action="./submit_rating.php" id = "review-form">
+                <div class="form-group">
+                    <label for="review_title">Review Title</label>
+                    <input type="text" class="form-control" id="review_title" placeholder="Review Title" name = "review_title" required>
+                </div>
+                <div class="form-group">
+                    <label for="text">Write Your Review</label>
+                    <textarea class="form-control" id="text" placeholder="Review Here Please" name = "text" rows = "2" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="suggestions">Suggestion</label>
+                    <textarea class="form-control" id="suggestions" placeholder="Any kind suggestions for the this recipe ?" name = "suggestions" rows = "2" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="rating">Rate this recipe</label>
+                    <div id="stars" class="starrr"></div>
+                    <span id="count" >0</span> star
+                    <input type = "hidden" name = "rating" value = "0" id = "star_value"/>
+                </div>
+                <?php 
+                    echo "<input type = 'hidden' name = 'recipe_id' value = '". $recipe["recipe_id"] ."' />";
+                ?>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="Submit" class="btn btn-primary" form="review-form">Submit</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Show all reviews -->
+    <?php 
+        if (!empty($reviews)){
+            
+            foreach ($reviews as $value) {
+                echo "<div class = 'review-tuple'>";
+                echo "<h3>" . $value["review_title"] . "<div id='stars-existing' class='starrr rating-star' data-rating=" . $value["ratings"] . "></div>" . "</h3>";
+                echo "<p class = 'review-text'>" . $value["text"] . "</p>";
+                echo "<p class = 'review-text'> Suggestion: " . $value["suggestions"] . "</p>";
+                echo "<span>By " . $value["user_name"] . "</span>";
+                echo "</div>";
             }
-        ?>
+        }
+    ?>
     </div>
 </div>
 
