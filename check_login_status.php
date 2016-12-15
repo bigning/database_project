@@ -1,5 +1,6 @@
 <?php
 session_start();
+ob_start();
 if (!$_SESSION["user_id"]) {
     ob_start();
     header("Location: welcomePage.php");
