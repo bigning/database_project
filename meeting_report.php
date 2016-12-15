@@ -42,10 +42,10 @@ if ($query = $conn->prepare($query_str)) {
 
 
 // test
-echo "<br/><br/>meeting_info: <br/>";
-print_r($meeting_info);
-echo "<br/><br/>meeting_reports: <br/>";
-print_r($meeting_reports);
+// echo "<br/><br/>meeting_info: <br/>";
+// print_r($meeting_info);
+// echo "<br/><br/>meeting_reports: <br/>";
+// print_r($meeting_reports);
 ?>
 
 
@@ -67,13 +67,14 @@ print_r($meeting_reports);
 
 <?php require "./include/partials/navFooter.php" ?>
 
+<a href='./group_detail.php?group_id='></a>
 
 <!-- meeting name -->
 <div class = "container">
     <div class = "jumbotron meeting-div">
         <?php 
             echo "<h1>" . $meeting_info["meeting_name"] . "</h1>";
-            echo "<p>" . $meeting_info["group_name"] . " group</p>";
+            echo "<a href='./group_detail.php?group_id=" . $meeting_info["group_id"] . "'>" . $meeting_info["group_name"] . " group</a>";
             echo "<p> Host by " . $meeting_info["organiser_name"] . "</p>";
         ?>
     </div>
