@@ -20,6 +20,22 @@ if ($icon_size > 0) {
 }
 $query->execute();
 
+$query_str = "SELECT user_id, user_name, user_profile, user_icon FROM User Where user_name = ? ORDER BY user_id desc";
+if ($query = $conn->prepare($query_str)) {
+    $query->bind_param('s', $user_name);
+    $query->execute();
+
+    $result = $query->get_result();
+    $row = $result->fetch_array(MYSQLI_ASSOC);
+    session_start();
+    $_SESSION["user_id"] = $row["user_id"];
+    $_SESSION["user_name"] = $row["user_name"];
+    $_SESSION["user_profile"] = $row["user_profile"];
+    $_SESSION["user_icon"] = $row["user_icon"];
+} else {
+}
+header("Location: ./homepage.php");
+
 $conn->close();
 ?>
 Done!
