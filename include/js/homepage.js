@@ -75,4 +75,4 @@ $("#add_step_button").on("click", function(){
 
 
 
-$(".step-div").on("change", handleFileSelect);
+$(".step-div").on("change", file, handleFileSelect);

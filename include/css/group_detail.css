@@ -40,8 +40,10 @@
 	color: white;
 }
 
-.meeting-title{
-	font-size: 1.6em;
+.meeting-tuple .meeting-title{
+	font-size: 2.5rem;
+	margin-bottom: 0;
+	font-weight: bolder;
 }
 
 .user_icon{

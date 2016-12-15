@@ -42,10 +42,10 @@ if ($query = $conn->prepare($query_str)) {
 
 
 // test
-echo "<br/><br/>meeting_info: <br/>";
-print_r($meeting_info);
-echo "<br/><br/>meeting_reports: <br/>";
-print_r($meeting_reports);
+// echo "<br/><br/>meeting_info: <br/>";
+// print_r($meeting_info);
+// echo "<br/><br/>meeting_reports: <br/>";
+// print_r($meeting_reports);
 ?>
 
 
@@ -67,13 +67,14 @@ print_r($meeting_reports);
 
 <?php require "./include/partials/navFooter.php" ?>
 
+<a href='./group_detail.php?group_id='></a>
 
 <!-- meeting name -->
 <div class = "container">
     <div class = "jumbotron meeting-div">
         <?php 
             echo "<h1>" . $meeting_info["meeting_name"] . "</h1>";
-            echo "<p>" . $meeting_info["group_name"] . " group</p>";
+            echo "<a href='./group_detail.php?group_id=" . $meeting_info["group_id"] . "'>" . $meeting_info["group_name"] . " group</a>";
             echo "<p> Host by " . $meeting_info["organiser_name"] . "</p>";
         ?>
     </div>
@@ -102,8 +103,8 @@ print_r($meeting_reports);
                 <h4 class="modal-title" id="myModalLabel">New Comment</h4>
               </div>
               <div class="modal-body">
-                <form method="POST" action="./create_meeting_report.php">
-                    <input type="hidden" name="meeting_id" value="<?php echo $meeting_info["meeting_id"] ?>">
+                <form method="POST" action="./create_meeting_report.php" id = "comment-form" enctype="multipart/form-data">
+                    <input type="hidden" name="meeting_id" value="<?php echo $meeting_id ?>">
                     <textarea class="form-control" placeholder="Leave your comment here" name = "message" rows = "2" required></textarea>
                     <input type="file" id = "meeting-image" name="meeting_image">
                     <output id = "list"></output>
@@ -111,7 +112,7 @@ print_r($meeting_reports);
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="submit" class="btn btn-primary" form="comment-form">Submit</button>
               </div>
             </div>
           </div>

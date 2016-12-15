@@ -212,7 +212,12 @@ foreach ($meetings as $meeting) {
                     echo "<div class = 'meeting-tuple'>";
 
                     // Meeting title
-                    echo "<a class = 'meeting-title' href='./meeting_report.php?meeting_id=" . $value["meeting_id"] . "'>" . $value["meeting_name"] . "</a>";
+                    if ($is_member){
+                        echo "<a class = 'meeting-title' href='./meeting_report.php?meeting_id=" . $value["meeting_id"] . "'>" . $value["meeting_name"] . "</a>";
+                    } else {
+                        echo "<p class = 'meeting-title' href='#'>" . $value["meeting_name"] . "</p>";
+                    }
+                    
 
                     // Meeting organizer 
                     echo "<div class = 'organizer'>";
@@ -228,7 +233,7 @@ foreach ($meetings as $meeting) {
                         if ($is_rsvp[$value["meeting_id"]]){
                             echo "<button type='button' class='btn btn-sm btn-success rsvp-button' disabled>RSVPed</button>";
                         } else {
-                            echo "<a class = 'btn btn-sm btn-warning rsvp-button' href='./rsvp.php?meeting_id=" . $value["meeting_id"] . "'>" . "RSVP" . "</a>";
+                            echo "<a class = 'btn btn-sm btn-warning rsvp-button' href='./rsvp.php?meeting_id=" . $value["meeting_id"] . "&is_rsvp=". $is_rsvp[$value["meeting_id"]] . "&group_id=" . $group["group_id"] . "'>" . "RSVP" . "</a>";
                         }
                     }
                 
