@@ -1,5 +1,5 @@
 <?php
-// return group_id, group_name, group_owner, user_icon(owner) IN group
+// return group_id, group_name, group_owner, user_icon(owner), owner_name IN group
 // return is_member (1 or 0)
 // return meeting_id, meeting_name, organiser_id, user_name(organiser), user_icon(organiser) in meetings
 // return is_rsvp for each meeting, e.g. is_rsvp[1] = 1 means current user is rsvp for meeting 1
@@ -11,7 +11,7 @@ if (!array_key_exists("group_id", $_GET)) {
 }
 $group_id = $_GET["group_id"];
 $group = array();
-$query_str = "SELECT Groups.group_id, Groups.group_name, Groups.group_owner, User.user_icon AS owner_icon FROM Groups JOIN User ON Groups.group_owner = User.user_id WHERE Groups.group_id = ?";
+$query_str = "SELECT Groups.group_id, Groups.group_name, Groups.group_owner,User.user_name AS owner_name, User.user_icon AS owner_icon FROM Groups JOIN User ON Groups.group_owner = User.user_id WHERE Groups.group_id = ?";
 if ($query = $conn->prepare($query_str)) {
     $query->bind_param('i', $group_id);
     $query->execute();

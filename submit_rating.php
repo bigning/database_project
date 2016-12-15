@@ -33,4 +33,6 @@ if (array_key_exists("recipe_id", $GLOBALS) && array_key_exists("review_title", 
     header("Location: error_page.php?err_msg=please fill recipe_id, review_title, ratings");
 }
 
+header("Location: ./recipe_detail.php?recipe_id=$recipe_id");
+
 ?>
