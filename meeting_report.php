@@ -105,6 +105,8 @@ print_r($meeting_reports);
                 <form method="POST" action="./create_meeting_report.php">
                     <input type="hidden" name="meeting_id" value="<?php echo $meeting_info["meeting_id"] ?>">
                     <textarea class="form-control" placeholder="Leave your comment here" name = "message" rows = "2" required></textarea>
+                    <input type="file" id = "meeting-image" name="meeting_image">
+                    <output id = "list"></output>
                 </form>
               </div>
               <div class="modal-footer">
@@ -135,4 +137,5 @@ print_r($meeting_reports);
 
 <link rel="stylesheet" type="text/css" href="./include/css/meeting_report.css">
 <script type="text/javascript" src = "./include/framework/jquery-3.1.1.min.js"></script>
+<script type="text/javascript" src = "./include/js/meeting_report.js"></script>
 <?php require "./include/partials/footer.php" ?>
