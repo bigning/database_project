@@ -18,7 +18,7 @@ if (!array_key_exists("group_id", $_GET)) {
 $group_id = $_GET["group_id"];
 
 
-if ($is_rsvp == 1) {
+if ($is_rsvp == 0) {
     $query_str = "insert into MeetingRSVP (meeting_id, user_id) values (?, ?)";
     if ($query = $conn->prepare($query_str)) {
         $query->bind_param('ii', $meeting_id, $user_id);
