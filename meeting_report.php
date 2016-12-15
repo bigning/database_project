@@ -82,12 +82,47 @@ print_r($meeting_reports);
 
 <div class = "container">
     <div class = "jumbotron report-div">
-        <h2>Meeting Reports</h2>
+        <div class = "meeting-header">
+            <h2>Meeting Reports</h2>
+
+            <!-- create meeting button -->
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#create-meeting">
+              New Comment
+            </button>
+        </div>
+        
+        <!-- Modal -->
+        <div class="modal fade" id="create-meeting" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">New Comment</h4>
+              </div>
+              <div class="modal-body">
+                <form method="POST" action="./create_meeting_report.php">
+                    <input type="hidden" name="meeting_id" value="<?php echo $meeting_info["meeting_id"] ?>">
+                    <textarea class="form-control" placeholder="Leave your comment here" name = "message" rows = "2" required></textarea>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <?php 
             if (!empty($meeting_reports)){
                 foreach ($meeting_reports as $value) {
                     echo "<div class = 'report-tuple'>";
                     echo "<p class = 'report-message'>" . $value["message"] . "</p>";
+                    if(!empty($value["meeting_image"])){
+                        echo "<img src='" . $value["meeting_image"] . "' class = 'thumbnail meeting-image'></p>";
+                    }
                     echo "<p class = 'report-name-n-time'>By " . $value["user_name"] . " on " . $value["time"] . "</p>";
                     echo "</div>";
                 }
