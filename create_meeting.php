@@ -19,6 +19,7 @@ if ($query = $conn->prepare($query_str)) {
 } else {
     echo $conn->error;
 }
+ob_start();
 header("Location: ./group_detail.php?group_id=$group_id");
 
 ?>
