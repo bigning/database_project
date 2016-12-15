@@ -83,16 +83,16 @@ foreach ($meetings as $meeting) {
 }
 
 // test
-echo "<br/><br/>group: <br/>";
-print_r($group);
-echo "<br/><br/>is_member: <br/>";
-print_r($is_member);
-echo "<br/><br/>meetings: <br/>";
-print_r($meetings);
-echo "<br/><br/>is_rsvps: <br/>";
-print_r($is_rsvp);
-echo "<br/><br/>curr_user: <br/>";
-print($user_id);
+// echo "<br/><br/>group: <br/>";
+// print_r($group);
+// echo "<br/><br/>is_member: <br/>";
+// print_r($is_member);
+// echo "<br/><br/>meetings: <br/>";
+// print_r($meetings);
+// echo "<br/><br/>is_rsvps: <br/>";
+// print_r($is_rsvp);
+// echo "<br/><br/>curr_user: <br/>";
+// print($user_id);
 
 ?>
 
@@ -135,9 +135,9 @@ print($user_id);
             // join or quit button
             if ($is_member){
                 if ($user_id === $group["group_owner"]){
-                    echo "<button type='button' class='btn btn-lg btn-warning join-quit-button' disabled>Quit Group</button>";
+                    echo "<button type='button' class='btn btn-lg btn-danger join-quit-button' disabled>Quit Group</button>";
                 } else {
-                    echo "<button type='submit' form = 'join-quit-form' class='btn btn-lg btn-warning join-quit-button' >Quit Group</button>";
+                    echo "<button type='submit' form = 'join-quit-form' class='btn btn-lg btn-danger join-quit-button' >Quit Group</button>";
                 }
             } else {
                 echo "<button type='submit' form = 'join-quit-form' class='btn btn-lg btn-success join-quit-button' >Join Group</button>";
@@ -149,11 +149,98 @@ print($user_id);
             if ($group["owner_icon"] != null){
                 echo '<img src="' . $group["owner_icon"] . '" class = "thumbnail user_icon" >';
             }
-            echo "<span>" . "need to provide" . "</span>";
+            echo "<span>" . $group["owner_name"] . "</span>";
             echo "</div>";
         ?>
     </div>
 </div>
+
+
+
+<!-- Meetings -->
+<div class = "container">
+    <div class = "jumbotron">
+        <div>
+            <h2 id = "meeting-title">Meetings</h2>
+
+            <!-- creating meeting button -->
+            <?php 
+                if($is_member){
+                    echo "<button type='button' class='btn btn-primary meeting-button' data-toggle='modal' data-target='#create-meeting'>New Meeting</button>";
+                }
+            ?>
+        </div>
+        
+        
+
+        <!-- Modal -->
+        <div class="modal fade" id="create-meeting" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h4 class="modal-title" id="myModalLabel">Create Meeting</h4>
+                    </div>
+                    <div class="modal-body">
+                        
+                        <!-- Form -->
+                        <form class="form-inline" method="GET" action="./create_meeting.php" id = "meeting-form">
+                            <div class="form-group">
+                                <label for = "meeting-name">Meeting Name</label>
+                                <input type="text" class = "form-control" name="meeting_name" id = "meeting-name" placeholder="Meeting Name" required>
+                            </div>
+                            <input type="hidden" name="group_id" value="<?php echo $group['group_id'] ?>">
+                        </form>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary" form="meeting-form">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <?php  
+
+            //list all meetings
+            if (!empty($meetings)){
+                foreach ($meetings as $value) {
+                    echo "<div class = 'meeting-tuple'>";
+
+                    // Meeting title
+                    echo "<h2>" . $value["meeting_name"] . "</h2>";
+
+                    // Meeting organizer 
+                    echo "<div class = 'organizer'>";
+                    echo "<span>" . "Host by: " . "</span>";
+                    if ($value["user_icon"] != null){
+                        echo '<img src="' . $value["user_icon"] . '" class = "thumbnail user_icon" >';
+                    }
+                    echo "<span>" . $value["user_name"] . "</span>";
+                    echo "</div>";
+
+                    // RSVP
+                    if($is_member){
+                        if ($is_rsvp[$value["meeting_id"]]){
+                            echo "<button type='button' class='btn btn-sm btn-success rsvp-button' disabled>RSVPed</button>";
+                        } else {
+                            echo "<a class = 'btn btn-sm btn-warning rsvp-button' href='./rsvp.php?meeting_id=" . $value["meeting_id"] . "'>" . "RSVP" . "</a>";
+                        }
+                    }
+                
+                    echo "</div>";
+                }
+            }
+        ?>
+    </div>
+</div>
+
+
+
 
 
 <link rel="stylesheet" type="text/css" href="./include/css/group_detail.css">

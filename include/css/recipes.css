@@ -18,6 +18,8 @@
 	text-align: center;
 	background: rgba(255,255,255,0.07);
 	margin-bottom: 30px;
+	height: 350px;
+	overflow: auto;
 }
 
 .recipe-image{
