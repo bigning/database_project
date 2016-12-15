@@ -4,7 +4,7 @@ require "./check_login_status.php";
 if (!array_key_exists("group_name", $_GET)) {
     header("Location: error_page.php?err_msg=please input group_name");
 }
-$group_name = $_GET["group_name"];
+$group_name = strip_tags($_GET["group_name"]);
 $query_str = "INSERT INTO Groups ( group_name, group_owner) VALUES (?, ?)";
 if ($query = $conn->prepare($query_str)) {
     $query->bind_param('si', $group_name, $user_id);

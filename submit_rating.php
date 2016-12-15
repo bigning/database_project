@@ -6,16 +6,16 @@ if (array_key_exists("recipe_id", $_GET)) {
     $recipe_id = $_GET["recipe_id"];
 }
 if (array_key_exists("review_title", $_GET)) {
-    $review_title = $_GET["review_title"];
+    $review_title = strip_tags($_GET["review_title"]);
 }
 if (array_key_exists("text", $_GET)) {
-    $text = $_GET["text"];
+    $text = strip_tags($_GET["text"]);
 }
 if (array_key_exists("suggestions", $_GET)) {
-    $suggestions = $_GET["suggestions"];
+    $suggestions = strip_tags($_GET["suggestions"]);
 }
 if (array_key_exists("rating", $_GET)) {
-    $ratings = $_GET["rating"];
+    $ratings = strip_tags($_GET["rating"]);
 }
 
 if (array_key_exists("recipe_id", $GLOBALS) && array_key_exists("review_title", $GLOBALS) && array_key_exists("ratings", $GLOBALS)) {

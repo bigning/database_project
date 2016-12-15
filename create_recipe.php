@@ -3,7 +3,7 @@ require "./db_util.php";
 require "./check_login_status.php";
 
 // insert to Recipe
-$recipe_title = $_POST["recipe_title"];
+$recipe_title = strip_tags($_POST["recipe_title"]);
 $num_servings = $_POST["num_servings"];
 
 $query = $conn->prepare("INSERT INTO Recipe(user_id, recipe_title, num_servings) VALUES (?, ?, ?)");
@@ -35,8 +35,8 @@ while (true) {
     if (!array_key_exists($ingredient_name_var, $_POST)) {
         break;
     }
-    $ingredient_name = $_POST[$ingredient_name_var];
-    $unit = $_POST["ingredient_unit_" . $ind];
+    $ingredient_name = strip_tags($_POST[$ingredient_name_var]);
+    $unit = strip_tags($_POST["ingredient_unit_" . $ind]);
     $quantity = $_POST["ingredient_quantity_" . $ind];
 
     $query = $conn->prepare("INSERT INTO RecipeIngredient(recipe_id, ingredients, quantity, unit) VALUES (?, ?, ?, ?)");
@@ -54,7 +54,7 @@ while (true) {
         break;
     }
     $step_id = $ind;
-    $step_desc = $_POST[$step_name];
+    $step_desc = strip_tags($_POST[$step_name]);
 
     $step_img_save_name = null;
     $step_img_size = $_FILES["step_file_" . $ind]["size"];
@@ -72,7 +72,7 @@ while (true) {
 
 // insert into tag
 if (strlen($_POST["tags"]) > 0) {
-    $tags = $_POST["tags"];
+    $tags = strip_tags($_POST["tags"]);
     $tag_arr = explode(",", $tags);
         print_r($tag_arr);
     foreach ($tag_arr as $tag) {
