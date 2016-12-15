@@ -3,7 +3,7 @@ require "./db_util.php";
 require "./check_login_status.php";
 
 $meeting_id = $_POST["meeting_id"];
-$message = $_POST["message"];
+$message = strip_tags($_POST["message"]);
 $cur_time = date("Y-m-d h:i:s");
 
 $img_save_name = null;
