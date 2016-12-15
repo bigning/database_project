@@ -240,7 +240,7 @@ if ($query = $conn->prepare("SELECT distinct Recipe.recipe_title, Recipe.recipe_
     </table>
 
 
-
+<a class = 'rsvp-link' href=''></a>
     <!-- RSVPs -->
     <table class = "table">
         <thead class = "thead-default">

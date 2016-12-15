@@ -1,0 +1,55 @@
+
+
+
+.jumbotron{
+	background-color: rgba(0,0,0,0.7);
+	overflow: auto;
+}
+
+.container{
+	width: 90%;
+}
+
+.meeting-div{
+	text-align: center;
+}
+
+
+.meeting-div p{
+	text-align: right;
+	margin-top: 0 ;
+	margin-bottom: 0;
+}
+
+.report-tuple{
+	margin-bottom: 20px;
+}
+
+.report-tuple .report-name-n-time{
+	text-align: right;
+	font-size: 1em;
+}
+
+.report-tuple .report-message{
+	border-left: 3px solid orange;
+	padding-left: 5px;
+}
+
+
+
+
+
+
+
+html{
+	height: 100%;
+}
+
+body{
+	background: url(../images/meeting_report.jpeg);
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	color: white;
+}

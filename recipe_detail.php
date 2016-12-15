@@ -300,7 +300,7 @@ if ($query = $conn->prepare($query_str)) {
     </div>
 </div>
 
-<a href=""></a>
+
 <!-- Relate to -->
 <div class = "container">
     <div class = "jumbotron">

@@ -3,7 +3,7 @@
 	text-align: center;
 }
 
-#meeting-title{
+#meeting-header{
 	display: inline-block;
 	margin-right: 20px;
 }
@@ -34,6 +34,14 @@
 	display: inline-block;
 	text-align: center;
 	margin-bottom: 25px;
+}
+
+.meeting-tuple a{
+	color: white;
+}
+
+.meeting-title{
+	font-size: 1.6em;
 }
 
 .user_icon{

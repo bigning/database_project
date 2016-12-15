@@ -161,7 +161,7 @@ foreach ($meetings as $meeting) {
 <div class = "container">
     <div class = "jumbotron">
         <div>
-            <h2 id = "meeting-title">Meetings</h2>
+            <h2 id = "meeting-header">Meetings</h2>
 
             <!-- creating meeting button -->
             <?php 
@@ -212,7 +212,7 @@ foreach ($meetings as $meeting) {
                     echo "<div class = 'meeting-tuple'>";
 
                     // Meeting title
-                    echo "<h2>" . $value["meeting_name"] . "</h2>";
+                    echo "<a class = 'meeting-title' href='./meeting_report.php?meeting_id=" . $value["meeting_id"] . "'>" . $value["meeting_name"] . "</a>";
 
                     // Meeting organizer 
                     echo "<div class = 'organizer'>";
@@ -238,8 +238,6 @@ foreach ($meetings as $meeting) {
         ?>
     </div>
 </div>
-
-
 
 
 

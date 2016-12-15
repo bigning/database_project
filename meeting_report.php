@@ -47,3 +47,57 @@ print_r($meeting_info);
 echo "<br/><br/>meeting_reports: <br/>";
 print_r($meeting_reports);
 ?>
+
+
+
+
+
+
+
+<!-- FE test -->
+
+
+
+
+<!-- FE -->
+<!-- Navbar -->
+<?php require "./include/partials/navHeader.php" ?>
+
+<?php require "./include/partials/navRight.php" ?>
+
+<?php require "./include/partials/navFooter.php" ?>
+
+
+<!-- meeting name -->
+<div class = "container">
+    <div class = "jumbotron meeting-div">
+        <?php 
+            echo "<h1>" . $meeting_info["meeting_name"] . "</h1>";
+            echo "<p>" . $meeting_info["group_name"] . " group</p>";
+            echo "<p> Host by " . $meeting_info["organiser_name"] . "</p>";
+        ?>
+    </div>
+</div>
+
+
+<div class = "container">
+    <div class = "jumbotron report-div">
+        <h2>Meeting Reports</h2>
+        <?php 
+            if (!empty($meeting_reports)){
+                foreach ($meeting_reports as $value) {
+                    echo "<div class = 'report-tuple'>";
+                    echo "<p class = 'report-message'>" . $value["message"] . "</p>";
+                    echo "<p class = 'report-name-n-time'>By " . $value["user_name"] . " on " . $value["time"] . "</p>";
+                    echo "</div>";
+                }
+            }
+        ?>
+    </div>
+</div>
+
+
+
+<link rel="stylesheet" type="text/css" href="./include/css/meeting_report.css">
+<script type="text/javascript" src = "./include/framework/jquery-3.1.1.min.js"></script>
+<?php require "./include/partials/footer.php" ?>
