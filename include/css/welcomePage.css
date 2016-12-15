@@ -18,6 +18,16 @@ body{
 	color: white;
 }
 
+/*still figuring out a better way to locate the register form*/
+/*#register_form{
+	position: absolute;
+	top: 170px;
+	left: 160px;
+	width: 400px;
+	height: 500px;
+	color: white;
+}*/
+
 .form-input{
 	width: 200px;
 	margin: 0 10%;
