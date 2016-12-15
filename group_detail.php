@@ -228,7 +228,7 @@ foreach ($meetings as $meeting) {
                         if ($is_rsvp[$value["meeting_id"]]){
                             echo "<button type='button' class='btn btn-sm btn-success rsvp-button' disabled>RSVPed</button>";
                         } else {
-                            echo "<a class = 'btn btn-sm btn-warning rsvp-button' href='./rsvp.php?meeting_id=" . $value["meeting_id"] . "'>" . "RSVP" . "</a>";
+                            echo "<a class = 'btn btn-sm btn-warning rsvp-button' href='./rsvp.php?meeting_id=" . $value["meeting_id"] . "&is_rsvp=". $is_rsvp[$value["meeting_id"]] . "'>" . "RSVP" . "</a>";
                         }
                     }
                 
