@@ -174,7 +174,7 @@ if ($query = $conn->prepare($query_str)) {
                 if (!empty($tags)){
                     echo "Tags: ";
                     foreach ($tags as $value) {
-                        echo "<span>" . $value["tag"] . "</span> ";
+                        echo "<a class = 'label label-danger' href='./recipes.php?query=" . $value["tag"] . "'>" . $value["tag"] . "</a>";
                     }
                 }
             ?>

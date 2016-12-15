@@ -240,7 +240,6 @@ if ($query = $conn->prepare("SELECT distinct Recipe.recipe_title, Recipe.recipe_
     </table>
 
 
-<a class = 'rsvp-link' href=''></a>
     <!-- RSVPs -->
     <table class = "table">
         <thead class = "thead-default">
@@ -250,7 +249,7 @@ if ($query = $conn->prepare("SELECT distinct Recipe.recipe_title, Recipe.recipe_
             <?php 
             if (!empty($rsvp)){
                 foreach ($rsvp as $value) {
-                    echo "<tr><td>" . $value["meeting_name"] . "</td></tr>";
+                    echo "<tr><td>" . "<a href='./meeting_report.php?meeting_id=" . $value["meeting_id"] . "'>" .$value["meeting_name"] . "</a></td></tr>";
                 }
             }
             ?>

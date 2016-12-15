@@ -155,7 +155,7 @@ if ($query = $conn->prepare($query_str)) {
                     echo "<div class = 'tags'>";
                     if(!empty($tags[$curr_id])){
                         foreach ($tags[$curr_id] as $value) {
-                            echo "<span class='label label-danger'>" . $value . "</span>";
+                            echo "<a class = 'label label-danger' href='./recipes.php?query=" . $value . "'>" . $value . "</a>";
                         }
                     }
                     echo "</div>";
@@ -166,6 +166,7 @@ if ($query = $conn->prepare($query_str)) {
         ?>
     </div>
 </div>
+
 
 <link rel="stylesheet" type="text/css" href="./include/css/recipes.css">
 <script type="text/javascript" src = "./include/framework/jquery-3.1.1.min.js"></script>

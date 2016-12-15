@@ -1,4 +1,3 @@
-
 <?php
 require "./db_util.php";
 require "./check_login_status.php";

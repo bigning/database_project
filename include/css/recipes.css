@@ -45,9 +45,10 @@
 	margin-top: 25px;
 }
 
-.tags span{
+.tags .label{
 	margin-right: 5px;
 }
+
 
 html{
 	height: 100%;
