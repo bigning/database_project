@@ -1,5 +1,5 @@
 <?php
-// return meeting_name, group_id, group_name, organiser_id, organiser_name IN meeting_info
+// return meeting_id,meeting_name, group_id, group_name, organiser_id, organiser_name IN meeting_info
 // 
 require "./db_util.php";
 require "./check_login_status.php";
@@ -27,7 +27,7 @@ if ($query = $conn->prepare($query_str)) {
 
 //get user_id, message, time, meeting_image 
 $meeting_reports = array();
-$query_str = "SELECT User.user_id, User.user_name, MeetingReport.message, MeetingReport.time, MeetingReport.meeting_image FROM MeetingReport JOIN User ON MeetingReport.user_id = User.user_id WHERE MeetingReport.meeting_id = ?";
+$query_str = "SELECT MeetingReport.meeting_id, User.user_id, User.user_name, MeetingReport.message, MeetingReport.time, MeetingReport.meeting_image FROM MeetingReport JOIN User ON MeetingReport.user_id = User.user_id WHERE MeetingReport.meeting_id = ?";
 if ($query = $conn->prepare($query_str)) {
     $query->bind_param('i', $meeting_id);
     $query->execute();
