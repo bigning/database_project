@@ -41,5 +41,6 @@ if ($query = $conn->prepare($query_str)) {
     echo $conn->error;
 }
 
-header("Location: ./groups.php");
+$group_id = $group['group_id'];
+header("Location: ./group_detail.php?group_id=$group_id");
 ?>
