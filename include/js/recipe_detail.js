@@ -66,10 +66,10 @@ $("select").on("change", function(){
 	var value = $(this).closest("div").find(".quantity");
 	var quantity = parseInt(value.html());
 	var pre_unit = $(this).data("previous-value");
-	console.log("before is " + quantity + " " + pre_unit + " , new unit is " + unit);
+
 	curr_value = transformUnit(pre_unit, unit, quantity);
-	// console.log("before is " + quantity + " " + pre_unit + " , new is " + curr_value + " " + unit);
 	value.html(curr_value.toFixed(3));
+	
 	//updata pre unit 
 	$(this).data("previous-value", $(this).val());
 });
