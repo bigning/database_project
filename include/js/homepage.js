@@ -47,7 +47,7 @@ $("#add_ingredient_button").on("click", function(){
 	// add inputs into this new div
 	$("<input type='text' placeholder='Ingredient Name' required class = 'ingredient-inputs'>").attr("name", "ingredient_name_" + ingredient.toString()).appendTo("#ingredient_tuple_" + ingredient.toString());
 
-	$(" <input type='number' placeholder='Quantity' required class = 'ingredient-inputs'>").attr("name", "ingredient_quantity_" + ingredient.toString()).appendTo("#ingredient_tuple_" + ingredient.toString());
+	$(" <input type='number' step='0.01' placeholder='Quantity' required class = 'ingredient-inputs'>").attr("name", "ingredient_quantity_" + ingredient.toString()).appendTo("#ingredient_tuple_" + ingredient.toString());
 
 	$(" <select  required class = 'ingredient-inputs'> <option value = 'lb'>lb</option> <option value = 'g'>g</option> <option value = 'oz'>oz</option> <option value = 'l'>l</option> <option value = 'ml'>ml</option> <option value = 'tbsp'>tbsp</option> <option value = 'tsp'>tsp</option> </select>").attr("name", "ingredient_unit_" + ingredient.toString()).appendTo("#ingredient_tuple_" + ingredient.toString());
 
