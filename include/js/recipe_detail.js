@@ -68,7 +68,7 @@ $("select").on("change", function(){
 	var pre_unit = $(this).data("previous-value");
 
 	curr_value = transformUnit(pre_unit, unit, quantity);
-	value.html(curr_value.toFixed(3));
+	value.html(curr_value.toFixed(1));
 	
 	//updata pre unit 
 	$(this).data("previous-value", $(this).val());
