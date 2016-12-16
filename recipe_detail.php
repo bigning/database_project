@@ -201,8 +201,8 @@ if ($query = $conn->prepare($query_str)) {
             foreach ($ingredients as $value) {
                 echo "<div class = 'ingredient-tuple'>";
                 echo "<span>" . $value["ingredients"] . "</span>";
-                echo "<span>" . $value["quantity"] . "</span>";
-                echo "<span>" . $value["unit"] . "</span>";
+                echo "<span class = 'quantity'>" . $value["quantity"] . "</span>";
+                echo "<span>" . "<select class = 'unit'><option>lb</option><option>g</option><option>oz</option><option>l</option><option>ml</option><option>tbsp</option><option>tsp</option></select>" . "</span>";
                 echo "</div>";
             }
         }

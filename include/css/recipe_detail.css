@@ -31,6 +31,10 @@
 
 
 
+.unit{
+	background-color: rgba(0,0,0,0.1);
+	border: none;
+}
 .modal-content{
 	background-color: rgba(255,255,255,0.95);
 	color: black;
@@ -109,10 +113,13 @@
 	color: white;
 }
 
-
 p .label-danger{
 	margin-right: 5px;
 }
+
+
+
+
 
 
 
