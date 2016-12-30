@@ -1,5 +1,5 @@
-var ingredient= 2;
-var step = 2;
+var ingredient = 1;
+var step = 1;
 var file = "";
 var list = "";
 
@@ -31,12 +31,6 @@ function handleFileSelect(evt) {
       reader.readAsDataURL(f);
     }
 }
-
-
-
-
-
-
 
 
 

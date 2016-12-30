@@ -165,10 +165,6 @@ if ($query = $conn->prepare("SELECT distinct Recipe.recipe_title, Recipe.recipe_
                     <br>
                     <div>
                         <div class = "ingredient-div">
-                            <div id = "ingredient_tuple_1">
-                                <input type="text" placeholder="Ingredient Name" required="" class="ingredient-inputs" name="ingredient_name_1">
-                                <input type="number" step="0.01" placeholder="Quantity" required="" class="ingredient-inputs" name="ingredient_quantity_1">
-                            </div>
                             <!-- add more row from button click -->
                         </div>
                         <button type = "button" class = "btn btn-primary btn-sm" id = "add_ingredient_button">Add Ingredient</button>
@@ -179,11 +175,6 @@ if ($query = $conn->prepare("SELECT distinct Recipe.recipe_title, Recipe.recipe_
                 <br>
                 <div>
                     <div class = "step-div">
-                        <div id = "step_tuple_1">
-                            <textarea class="form-control" rows="2" required="" placeholder="Describe how you cook it! You could upload image for better explanation" name="step_1"></textarea>
-                            <input type="file" id="file_1" name="step_file_1">
-                            <output id="list_1"></output>
-                        </div>
                         <!-- add more step from button click -->
                     </div>
                     <button type = "button" class = "btn btn-primary btn-sm" id = "add_step_button">Add Step</button>
