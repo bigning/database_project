@@ -1,5 +1,5 @@
-var ingredient= 1;
-var step = 1;
+var ingredient= 2;
+var step = 2;
 var file = "";
 var list = "";
 
@@ -45,7 +45,7 @@ $("#add_ingredient_button").on("click", function(){
 	$("<div></div>").attr("id", "ingredient_tuple_" + ingredient.toString()).appendTo(".ingredient-div");
 
 	// add inputs into this new div
-	$("<input type='text' placeholder='Ingredient Name' required class = 'ingredient-inputs'>").attr("name", "ingredient_name_" + ingredient.toString()).appendTo("#ingredient_tuple_" + ingredient.toString());
+	$(" <input type='text' placeholder='Ingredient Name' required class = 'ingredient-inputs'>").attr("name", "ingredient_name_" + ingredient.toString()).appendTo("#ingredient_tuple_" + ingredient.toString());
 
 	$(" <input type='number' step='0.01' placeholder='Quantity' required class = 'ingredient-inputs'>").attr("name", "ingredient_quantity_" + ingredient.toString()).appendTo("#ingredient_tuple_" + ingredient.toString());
 
