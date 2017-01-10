@@ -1,0 +1,1 @@
+alert("Welcome!!, Use account below to login or create a new account!" + "\n\n" + "Username: jie  Password: wangjie");

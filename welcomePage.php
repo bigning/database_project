@@ -56,4 +56,5 @@ if (array_key_exists("source", $_GET)) {
 
 <link rel="stylesheet" type="text/css" href="./include/css/welcomePage.css">
 <script type="text/javascript" src = "./include/framework/jquery-3.1.1.min.js"></script>
+<script type="text/javascript" src="./include/js/welcomePage.js"></script>
 <?php require "./include/partials/footer.php" ?>
