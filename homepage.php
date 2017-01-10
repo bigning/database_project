@@ -165,7 +165,7 @@ if ($query = $conn->prepare("SELECT distinct Recipe.recipe_title, Recipe.recipe_
                     <br>
                     <div>
                         <div class = "ingredient-div">
-                            <!-- add new row from button click -->
+                            <!-- add more row from button click -->
                         </div>
                         <button type = "button" class = "btn btn-primary btn-sm" id = "add_ingredient_button">Add Ingredient</button>
                     </div>
@@ -175,7 +175,7 @@ if ($query = $conn->prepare("SELECT distinct Recipe.recipe_title, Recipe.recipe_
                 <br>
                 <div>
                     <div class = "step-div">
-                        <!-- add new row from button click -->
+                        <!-- add more step from button click -->
                     </div>
                     <button type = "button" class = "btn btn-primary btn-sm" id = "add_step_button">Add Step</button>
                 </div>
